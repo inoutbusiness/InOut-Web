@@ -23,15 +23,6 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonStyle: {
-    backgroundColor: "#98CE00",
-    color: "#222222",
-    width: 400,
-    height: 75,
-    borderRadius: 15,
-    fontWeight: "bold",
-    fontSize: 20,
-  },
 });
 
 const LoginCard = () => {
