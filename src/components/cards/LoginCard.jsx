@@ -5,6 +5,7 @@ import { makeStyles } from "@mui/styles";
 
 import "../../styles/LoginCard.css";
 import "../../api/apiMap.js";
+import axios from "axios";
 
 const useStyles = makeStyles({
   root: {
@@ -46,10 +47,28 @@ const LoginCard = () => {
     setEmail(e.target.value);
   };
 
+  const onSuccess = (response) => {
+    console.log(response.data.email);
+  };
+
   const handleEntrar = () => {
-    console.log(
-      `email: ${email} senha: ${password} para o endpoint /api/auth/signin`
-    );
+    var data = {
+      email: email,
+      password: password,
+    };
+
+    axios
+      .post("https://localhost:7221/api/v1/auth/signin", JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        onSuccess(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleCadastrar = () => {
