@@ -42,48 +42,25 @@ const LoginCard = () => {
     console.log(response.data.email);
   };
 
-   const handleGetToken = (email) => {
-
-    var data = {
-      email: email,
-      password: "",
-    }
-
-     axios
-        .get("https://localhost:7221/api/v1/auth/gettoken", data, {
-        headers: {
-           "Content-Type": "application/json",
-           "Accept": "application/json",
-         }
-        })
-        .then((response) => {
-         return response.data
-        })
-        .catch(function (error) {
-         return error.toString();
-       });
-   };
-
   const handleEntrar = () => {
     var data = {
       email: email,
       password: password,
     };
 
-    axios
-      .post("https://localhost:7221/api/v1/auth/signin", JSON.stringify(data), {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${handleGetToken(email)}`,
-        },
-      })
-      .then((response) => {
-        onSuccess(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  axios.post("https://localhost:7221/api/v1/auth/signin", JSON.stringify(data), {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((response) => {
+          onSuccess(response.data);
+          console.log(response.data.data.token);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
 
   const handleCadastrar = () => {
     console.log(`redirecionando para o endpoint /api/auth/signup`);
