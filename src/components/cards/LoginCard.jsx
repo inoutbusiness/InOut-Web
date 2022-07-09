@@ -3,6 +3,7 @@ import { TextField, Button, Grid, Box, Link, Typography } from "@mui/material";
 import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 
+import Footer from "../../Footer/Footer";
 import "../../styles/LoginCard.css";
 import "../../api/apiMap.js";
 import axios from "axios";
@@ -61,10 +62,6 @@ const LoginCard = () => {
           console.log(error);
         });
     };
-
-  const handleCadastrar = () => {
-    console.log(`redirecionando para o endpoint /api/auth/signup`);
-  };
 
   return (
     <Grid className={classes.root} alignItems="center">
@@ -155,16 +152,16 @@ const LoginCard = () => {
           </Typography>
           <Box>
             <Button
-              onClick={handleCadastrar}
-              className={classes.buttonStyle}
-              style={{
-                backgroundColor: "#98CE00",
-                color: "#222222",
-                width: 400,
-                height: 75,
-                borderRadius: 15,
-                fontWeight: "bold",
-                fontSize: 20,
+               href='/signup'
+               className={classes.buttonStyle}
+               style={{
+                 backgroundColor: "#98CE00",
+                 color: "#222222",
+                 width: 400,
+                 height: 75,
+                 borderRadius: 15,
+                 fontWeight: "bold",
+                 fontSize: 20,
               }}
             >
               Registrar
@@ -172,6 +169,7 @@ const LoginCard = () => {
           </Box>
         </div>
       </Box>
+      <Footer />
     </Grid>
   );
 };
