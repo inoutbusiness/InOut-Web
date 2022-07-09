@@ -1,8 +1,8 @@
 import LoginCard from "./components/cards/LoginCard";
 import { Container, Grid } from "@mui/material";
+import Footer from "./Footer/Footer";
 
-function App() {
-  
+export default function App() {
   return (
     <Container style={{height:"100%"}}>
       <Grid
@@ -12,9 +12,8 @@ function App() {
         justifyContent="center"
       >
         <LoginCard />
+        <Footer />
       </Grid>
     </Container>
   );
-}
-
-export default App;
+};
