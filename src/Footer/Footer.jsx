@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Box>
       <h1 style={{ color: "white" }}>
-        &copy; {new Date().getFullYear()} Arthur - Guilherme - Matheus
+        &copy; {new Date().getFullYear()} - InOut
       </h1>
     </Box>
   );
