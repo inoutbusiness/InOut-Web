@@ -49,18 +49,18 @@ const LoginCard = () => {
       password: password,
     };
 
-  axios.post("https://localhost:7221/api/v1/auth/signin", JSON.stringify(data), {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((response) => {
-          onSuccess(response.data);
-          console.log(response.data.data.token);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    axios.post("https://localhost:7221/api/v1/auth/signin", JSON.stringify(data), {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            onSuccess(response.data);
+            console.log(response.data.data.token);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     };
 
   return (
@@ -110,7 +110,7 @@ const LoginCard = () => {
           </Box>
           <Box>
             <Link
-              href=""
+              href="/forgotmypassword"
               underline="none"
               style={{
                 paddingTop: 3,

@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   }
 });
 
-const RegisterCard = () =>{
+const RegisterCard = () => {
     const classes = useStyles();
     const [cpfCnpj, setCpfCnpj] = useState("");
     const [email, setEmail] = useState("");
@@ -63,7 +63,7 @@ const RegisterCard = () =>{
           data = cpf;
         }
         setCpfCnpj(data);
-};
+    };
 
     const handleEmailChange = (e) => {
       setEmail(e.target.value);
