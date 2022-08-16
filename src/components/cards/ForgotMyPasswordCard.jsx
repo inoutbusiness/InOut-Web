@@ -1,10 +1,11 @@
 import React from 'react';
-import { TextField, Button, Grid, Box, IconButton } from "@mui/material";
+import { TextField, Button, Grid, Box } from "@mui/material";
 import { useState } from "react";
 import { makeStyles } from "@mui/styles"
 import { Typography } from '@material-ui/core';
 import Footer from '../../Footer/Footer'
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -30,11 +31,33 @@ const useStyles = makeStyles({
 const ForgotMyPasswordCard = () => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
+  const [goToResetPassword, setGoToResetPassword] = useState(false);
+  const [accountId, setAccountId] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
   
+  if (goToResetPassword && accountId != ""){
+    var a = "/emailCodeResetPassword/accountId=" + accountId;
+    return <Navigate to={a} />
+  }
+
+  const handleGetAccountIdByEmail = (email) => {
+    axios.post("https://localhost:7221/api/v1/forgotPassword/getAccountId", email, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((response) => {
+      setAccountId(response.data.data);
+      console.log(response.data.data);
+    })
+    .catch(function (error) {
+
+    });
+  };
+
   const handleEnviarEmail = () => {
 
     axios.post("https://localhost:7221/api/v1/forgotPassword/sendResetPasswordCode", email, {
@@ -44,6 +67,8 @@ const ForgotMyPasswordCard = () => {
     })
     .then((response) => {
       console.log('success!');
+      setGoToResetPassword(true);
+      handleGetAccountIdByEmail(email);
     })
     .catch(function (error) {
       console.log(error)
@@ -101,7 +126,6 @@ const ForgotMyPasswordCard = () => {
                 >
                   <Button
                     onClick={handleEnviarEmail}
-                    //href="/emailCodeResetPassword"
                     style={{
                       backgroundColor: "white",
                       borderColor: "#0E6BA8",

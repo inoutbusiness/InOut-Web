@@ -2,6 +2,7 @@ import React from "react";
 import { TextField, Button, Grid, Box, Link, Typography } from "@mui/material";
 import { useState } from "react";
 import { makeStyles } from "@mui/styles";
+import { Navigate } from "react-router-dom";
 
 import Footer from "../../Footer/Footer";
 import "../../styles/LoginCard.css";
@@ -30,6 +31,7 @@ const LoginCard = () => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [goToHomePage, setGoToHomePage] = useState(false);
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -39,9 +41,9 @@ const LoginCard = () => {
     setEmail(e.target.value);
   };
 
-  const onSuccess = (response) => {
-    console.log(response.data.email);
-  };
+  if (goToHomePage){
+    return <Navigate to="/Home" />
+  }
 
   const handleEntrar = () => {
     var data = {
@@ -55,8 +57,10 @@ const LoginCard = () => {
             },
           })
           .then((response) => {
-            onSuccess(response.data);
             console.log(response.data.data.token);
+            if (response.data.success){
+              setGoToHomePage(true);
+            };
           })
           .catch(function (error) {
             console.log(error);

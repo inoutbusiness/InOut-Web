@@ -94,7 +94,7 @@ const RegisterCard = () => {
         LastName: "Segundo Nome Teste",
         CpfCnpj: cpfCnpj,
         Phone: "(00) 00000-0000",
-        BranchId: 3,
+        BranchId: 1,
       };
 
     axios.post("https://localhost:7221/api/v1/auth/signup", JSON.stringify(data), {
