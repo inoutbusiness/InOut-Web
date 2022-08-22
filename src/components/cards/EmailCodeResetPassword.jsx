@@ -5,7 +5,7 @@ import { makeStyles } from "@mui/styles"
 import { Typography } from '@material-ui/core';
 import Footer from '../../Footer/Footer'
 import axios from 'axios';
-import { Navigate  } from 'react-router-dom';
+import { Navigate, useParams  } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -44,13 +44,16 @@ const useStyles = makeStyles({
   const handleSetCodeN4 = (e) => { setCodeN4(e.target.value) };
   const handleSetCodeN5 = (e) => { setCodeN5(e.target.value) };
   const handleSetCodeN6 = (e) => { setCodeN6(e.target.value) };
+  const params = useParams();
+
 
   const joinCodeNums = () => {
     return codeN1 + codeN2 + codeN3 + codeN4 + codeN5 + codeN6;
   };
 
   if (goToResetPassword){
-    return <Navigate to="/resetPassword" />
+    var b = "/resetPassword/" + params.accountId;
+    return <Navigate to={b} />
   };
 
   const handleConfirm = () => {
