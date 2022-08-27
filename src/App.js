@@ -1,6 +1,6 @@
-import LoginCard from "./components/cards/LoginCard";
+import SignInCard from "./pages/Login/SignIn/SignInCard";
 import { Container, Grid } from "@mui/material";
-import Footer from "./Footer/Footer";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         alignItems="center"
         justifyContent="center"
       >
-        <LoginCard />
+        <SignInCard />
         <Footer />
       </Grid>
     </Container>
