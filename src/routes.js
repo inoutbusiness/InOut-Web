@@ -1,22 +1,24 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import App from "./App"
-import LoginCard from "./components/cards/LoginCard";
-import RegisterCard from "./components/cards/RegisterCard";
-import ForgotMyPasswordCard from "./components/cards/ForgotMyPasswordCard"
-import EmailCodeResetPassword from "./components/cards/EmailCodeResetPassword";
-import ResetPassword from "./components/cards/ResetPassword";
+import SignInCard from "./pages/Login/SignIn/SignInCard"
+import SignUpCard from "./pages/Login/SignUp/SignUpCard"
+import ForgotMyPasswordCard from "./pages/Login/ForgotPassword/ForgotMyPasswordCard"
+import EmailCodeResetPassword from "./pages/Login/ForgotPassword/EmailCode/EmailCodeResetPassword"
+import ResetPasswordCard from "./pages/Login/ForgotPassword/ResetPassword/ResetPasswordCard"
+import Home from "./pages/Home/Home"
 
 export default function SetRoutes(){
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<App/>}></Route>
-                <Route path='/signin' element={<LoginCard/>}></Route>
-                <Route path='/signup' element={<RegisterCard/>}></Route>
+                <Route path='/signin' element={<SignInCard/>}></Route>
+                <Route path='/signup' element={<SignUpCard/>}></Route>
                 <Route path="/forgotmypassword" element={<ForgotMyPasswordCard/>}></Route>
                 <Route path="/emailCodeResetPassword/:accountId" element={<EmailCodeResetPassword/>}></Route>
-                <Route path="/resetPassword/:accountId" element={<ResetPassword/>}></Route>
+                <Route path="/resetPassword/:accountId" element={<ResetPasswordCard/>}></Route>
+                <Route path="Home" element={<Home/>}></Route>
             </Routes>
         </BrowserRouter>
     );
