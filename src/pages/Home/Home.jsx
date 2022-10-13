@@ -1,15 +1,15 @@
-import { DefaultButton } from '../../components/Button/Default/DefaultButton'
-import { DefaultBox } from '../../components/Box/DefaultBox'
-import { Grid } from '../../components/Grid/DefaultGrid'
+import { Footer } from "../../components/Footer/Footer"
+import Sidebar from "../../components/Sidebar/Sidebar";
 
-function Home(){
-    return (
-        <Grid>
-            <DefaultBox>
-                <DefaultButton href="/signin" title="Teste" backgroundColor="#0E6BA8" />
-            </DefaultBox>
-        </Grid>
-    )
+export default function Home(){
+  return (
+    <div>
+      <Sidebar content={
+        <div>
+          <h1>conteudo aqui</h1>
+        </div>
+      }/>
+      <Footer />
+    </div>
+  );
 }
-
-export default Home

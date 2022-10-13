@@ -1,6 +1,3 @@
-import React from "react"
-import Footer from "../../../components/Footer/Footer"
-
 import { Box } from "@mui/material"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
@@ -12,6 +9,7 @@ import { DefaultTextField } from "../../../components/TextField/TextField"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { handleSendResetPasswordCodeEmail } from "../../../services/Login/forgotmypassword"
 import { getAccountIdByEmail } from "../../../services/Getters/account"
+import { Footer } from "../../../components/Footer/Footer"
 
 const ForgotMyPasswordCard = () => {
   const [emailRequest, setEmailRequest] = useState("");
@@ -54,7 +52,6 @@ const ForgotMyPasswordCard = () => {
               <DefaultButton onClick={SendResetPasswordCodeEmail} backgroundColor="#0E6BA8" title="Enviar Código" />
             </Box>
         </DefaultBox>
-      <Footer />
     </Grid>
   );
 }

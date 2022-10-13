@@ -1,7 +1,6 @@
 // Single imports
 import React from "react"
 import cpfCnpjChange from "../../../commom/signinCommom"
-import Footer from "../../../components/Footer/Footer"
 import InputMask from "react-input-mask"
 
 // Multiple imports
@@ -14,6 +13,7 @@ import { SkipLine } from "../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { DefaultIconButton } from "../../../components/Icons/IconButton"
 import { handleSignUp } from "../../../services/Login/signup"
+import { Footer } from "../../../components/Footer/Footer"
 
 const SignUpCard = () => {
     const [cpfCnpjRequest, setCpfCnpj] = useState("");
@@ -91,7 +91,6 @@ const SignUpCard = () => {
               </Box>
           </div>
         </DefaultBox>
-        <Footer />
       </Grid>
     );
 }
