@@ -1,5 +1,4 @@
 import React from "react"
-import Footer from "../../../../components/Footer/Footer"
 
 import { Box } from "@mui/material"
 import { useState } from "react"
@@ -12,6 +11,7 @@ import { SkipLine } from "../../../../components/SkipLine/styles"
 import { PasswordTextField } from "../../../../components/TextField/TextField"
 import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
 import { handleResetPassword } from "../../../../services/Login/resetpassword"
+import { Footer } from "../../../../components/Footer/Footer"
 
 const ResetPasswordCard = () => {
     const [password, setPassword] = useState("")
@@ -57,7 +57,6 @@ const ResetPasswordCard = () => {
             </Box>
           </Box>
         </DefaultBox>
-        <Footer />
       </Grid>
     );
 

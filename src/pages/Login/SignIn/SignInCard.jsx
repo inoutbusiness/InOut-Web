@@ -1,7 +1,6 @@
 import "../../../styles/LoginCard.css"
 import "../../../services/apiMap"
 import React from "react"
-import Footer from "../../../components/Footer/Footer"
 import logo from "../../../assets/InOutLogo-withoutBackground.png"
 
 import { Box, Link } from "@mui/material"
@@ -38,7 +37,7 @@ const SignInCard = () => {
         <DefaultBox width="500" height="750">
           <div id="content">
             <Box>
-              <img src={logo} width="250" height="250" loading="lazy" style={{ marginLeft: "15%" }} />
+              <img src={logo} alt="InOut" width="250" height="250" loading="lazy" style={{ marginLeft: "15%" }} />
               <DefaultTextField label="E-mail" variant="outlined" type="email"
                                 onChange={(value) => setEmailRequest(value.target.value)} />
             </Box>
@@ -62,7 +61,6 @@ const SignInCard = () => {
             </Box>
           </div>
         </DefaultBox>
-        <Footer />
       </Grid>
     );
   };

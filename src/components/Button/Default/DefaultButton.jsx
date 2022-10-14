@@ -2,7 +2,6 @@ import { Button } from "@mui/material"
 
 export function DefaultButton(props) {
     return (
-        <div>
             <Button
                 href={props.href}
                 onClick={props.onClick}
@@ -10,8 +9,8 @@ export function DefaultButton(props) {
                 style={{
                     backgroundColor: props.backgroundColor,
                     color: "#FFFFFF",
-                    width: 380,
-                    height: 75,
+                    width: props.width ?? 380,
+                    height: props.height ?? 75,
                     borderRadius: 25,
                     fontWeight: "bold",
                     fontSize: 20
@@ -19,6 +18,5 @@ export function DefaultButton(props) {
             >
             {props.title}
             </Button>
-        </div>
     )
 }

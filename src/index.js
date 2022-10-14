@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'
 import './index.css';
 import InOutRoutes from './routes'
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root')
-);
+import React from "react";
+import ReactDOM from "react-dom";
 
-root.render(
-    <div>
-        <InOutRoutes />
-    </div>
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+  <React.StrictMode>
+    <InOutRoutes />
+  </React.StrictMode>,
+  rootElement
 );

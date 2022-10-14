@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from "../../../../components/Footer/Footer"
 
 import { Box } from "@mui/material";
 import { useState } from "react";
@@ -11,6 +10,7 @@ import { DefaultTextField } from "../../../../components/TextField/TextField"
 import { SkipLine } from "../../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
 import { handleEmailCodeChecker } from "../../../../services/Login/coderesetpasswordcard"
+import { Footer } from "../../../../components/Footer/Footer"
 
 const CodeResetPasswordCard = () => {
     const [codeN1, setCodeN1] = useState("");
@@ -75,7 +75,6 @@ const CodeResetPasswordCard = () => {
             <DefaultButton onClick={EmailCodeChecker} backgroundColor="#0E6BA8" title="Confirmar" />
           </Box>
         </DefaultBox>
-        <Footer />
       </Grid>
     );
 }

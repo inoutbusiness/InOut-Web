@@ -11,6 +11,7 @@ export function DefaultTextField(props) {
             onChange={props.onChange}
             placeholder={props.placeholder}
             inputProps={props.inputProps}
+            disabled={props.disabled}
             style={{
                 width: props.width ?? 400,
                 height: props.height,
