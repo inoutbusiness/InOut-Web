@@ -47,7 +47,7 @@ export default class Header extends React.PureComponent {
                   <MenuItem onClick={() => this.setState({ showModal: true, profileOptionsPosition: null })}>Profile</MenuItem>
                   <MenuItem component="a" href="/signin">Logout</MenuItem>
                 </Menu>
-                <ProfileModal open={this.state.showModal} onClose={() => this.setState({ showModal: false })} />
+                <ProfileModal open={this.state.showModal} href="/profile" onClose={() => this.setState({ showModal: false })} />
               </Nav>
             </Collapse>
           </Navbar>

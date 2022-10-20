@@ -7,6 +7,7 @@ import ForgotMyPasswordCard from "./pages/Login/ForgotPassword/ForgotMyPasswordC
 import EmailCodeResetPassword from "./pages/Login/ForgotPassword/EmailCode/EmailCodeResetPassword"
 import ResetPasswordCard from "./pages/Login/ForgotPassword/ResetPassword/ResetPasswordCard"
 import Home from "./pages/Home/Home"
+import Profile from "./pages/Profile/Profile"
 
 export default function SetRoutes(){
     return (
@@ -18,7 +19,8 @@ export default function SetRoutes(){
                 <Route path="/forgotmypassword" element={<ForgotMyPasswordCard/>}></Route>
                 <Route path="/emailCodeResetPassword/:accountId" element={<EmailCodeResetPassword/>}></Route>
                 <Route path="/resetPassword/:accountId" element={<ResetPasswordCard/>}></Route>
-                <Route path="Home" element={<Home/>}></Route>
+                <Route path="/home" element={<Home/>}></Route>
+                <Route path="/profile" element={<Profile/>}></Route>
             </Routes>
         </BrowserRouter>
     );

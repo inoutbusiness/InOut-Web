@@ -13,7 +13,7 @@ export function DefaultButton(props) {
                     height: props.height ?? 75,
                     borderRadius: 25,
                     fontWeight: "bold",
-                    fontSize: 20
+                    fontSize: 15
                 }}
             >
             {props.title}

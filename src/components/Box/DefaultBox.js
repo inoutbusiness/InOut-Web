@@ -12,4 +12,5 @@ justify-content: center;
 border: groove;
 border-color: #0E6BA8;
 box-shadow: 0 0 50px rgb(14, 107, 168);
+display: ${props => props.display};
 `;

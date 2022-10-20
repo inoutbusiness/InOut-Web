@@ -1,5 +1,5 @@
 body {
-    font-family: "Lato", sans-serif;
+    font-family: sans-serif;
   }
   .blur {
     background: rgba(0, 0, 0, 0.4);
@@ -17,7 +17,7 @@ body {
     left: 0px;
     z-index: 1000;
     background: #0E6BA8;
-    height: 62px;
+    height: 58px;
   }
   /******/
   .navbar {
@@ -37,13 +37,13 @@ body {
     display: inline-block;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
-    width: 220px; /***What i tweak from reactstrap*/
+    width: 190px; /***What i tweak from reactstrap*/
     margin-right: 1rem;
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
   }
-  /******/
+
   .bodyWrap {
     margin-top: 63px;
     position: relative;
@@ -70,20 +70,19 @@ body {
     height: 100%;
     display: block;
   }
-  /*******************/
   
   .sidenavOpen {
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 62px; /*This give space for navbar at top*/
+    top: 58px; /*This give space for navbar at top*/
     left: 0;
-    background-color: #191970;
+    background-color: #03112C;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 15px;
-    width: 250px;
+    width: 220px;
   }
   
   .mainShrink {
@@ -115,7 +114,6 @@ body {
     padding: 16px;
     background: #fff;
     height: 100vh;
-    overflow: scroll;
     display: block;
   }
   /*******************/

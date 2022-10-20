@@ -10,7 +10,7 @@ import { DefaultTextField } from "../TextField/TextField"
 import { SkipLine } from "../../components/SkipLine/styles";
 import { ProfileModalStyle, ModalDefaultStyle } from "./styles"
 
-export function ModalDefault(props) {
+export function DefaultModal(props) {
   return (
     <div>
       <Modal
@@ -74,7 +74,7 @@ export function ProfileModal(props) {
               <DefaultButton title="Close" backgroundColor="#0E6BA8" onClick={props.onClose} width="100px" height="40px" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <DefaultButton title="Edit" backgroundColor="#0E6BA8" href="/settings" width="100px" height="40px" />
+              <DefaultButton title="Edit" backgroundColor="#0E6BA8" href={props.href} width="100px" height="40px" />
             </Box>
           </div>
         </Box>

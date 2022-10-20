@@ -1,62 +1,43 @@
-import React from "react";
-import { BoxDifus } from "./styles";
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu,  Container, Avatar, Tooltip, MenuItem } from '@mui/material';
+import React from 'react';
+
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
 import "./styles.css"
 
-export const Footer = () => {
+export function Footer() {
   return (
-    <div className="footer-container">
-      <section className="footer-subscription">
-        <p className="footer-subscription-heading">
-          {new Date().getFullYear()} - InOut
-        </p> 
+    <MDBFooter className='text-center text-lg-start text-muted'>
+      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom' />
+      <section className=''>
+        <MDBContainer className='text-center text-md-start mt-5'>
+          <MDBRow className='mt-3'>
+            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>
+                <MDBIcon icon="gem" className="me-3" />
+                InOut - Resumo
+              </h6>
+              <p>
+                A proposta do InOut é facilitar ao maximo o trabalho das empresas em relação
+                a estoque. *Continuar*
+              </p>
+            </MDBCol>
+            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
+              <h6 className='text-uppercase fw-bold mb-4'>Contato</h6>
+              <p>
+                <MDBIcon icon="home" className="me-2" />
+                Arthur - Guilherme - Matheus
+              </p>
+              <p>
+                <MDBIcon icon="envelope" className="me-3" />
+                  inOut.empresa@gmail.com
+              </p>  
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       </section>
-    </div>
-  )
-}
-
-//
-//  Alterar todo esse arquivo, mudando o nome dele e o nome dos métodos, e melhorar o método Head
-//
-
-export const Head = () => {
-  const settings = ['Profile', 'Logout'];
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu}>
-                <Avatar />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              anchorEl={anchorElUser}
-              open={Boolean((anchorElUser))}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    {setting}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-        </Toolbar>
-      </Container>
-    </AppBar>
+      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+        © {new Date().getFullYear()} Copyright - InOut
+      </div>
+    </MDBFooter>
   );
 }

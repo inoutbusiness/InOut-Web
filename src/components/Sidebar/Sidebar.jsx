@@ -32,7 +32,7 @@ export default class Sidebar extends React.Component {
             &times;
           </a>
           <a href="/home">Home</a>
-          <a href="/settings">Settings</a>
+          <a href="/profile">Profile</a>
           <a href="/signin">Logout</a>
         </div>
         <div className={classnames("main", { mainShrink: open }, { mainExpand: !open }, { noscroll: mobile && open })}>

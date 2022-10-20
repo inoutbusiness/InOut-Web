@@ -13,9 +13,9 @@ export function DefaultTextField(props) {
             inputProps={props.inputProps}
             disabled={props.disabled}
             style={{
-                width: props.width ?? 400,
+                width: props.width ?? 320,
                 height: props.height,
-                backgroundColor: "white"
+                backgroundColor: "#fff"
             }}
         >
         </TextField>
@@ -33,7 +33,7 @@ export function PasswordTextField(props) {
             onChange={props.onChange}
             inputProps={props.inputProps}
             style={{
-                width: props.width ?? 250,
+                width: props.width ?? 320,
                 height: props.height,
                 backgroundColor: "white"
             }}

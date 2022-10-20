@@ -11,7 +11,7 @@ import { DefaultBox } from "../../../components/Box/DefaultBox"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { handleSignIn } from "../../../services/Login/signin"
 import { SkipLine } from "../../../components/SkipLine/styles"
-import { DefaultTextField } from "../../../components/TextField/TextField"
+import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
 import { DefaultTypography } from "../../../components/Labels/Typography"
 
 const SignInCard = () => {
@@ -33,31 +33,31 @@ const SignInCard = () => {
     }
 
     return (
-      <Grid>
-        <DefaultBox width="500" height="750">
+      <Grid style={{ backgroundColor: "#03112C" }}>
+        <DefaultBox width="400" height="600">
           <div id="content">
-            <Box>
-              <img src={logo} alt="InOut" width="250" height="250" loading="lazy" style={{ marginLeft: "15%" }} />
+            <Box sx={{ marginLeft: "-15px" }}>
+              <img src={logo} alt="InOut" width="150" height="150" loading="lazy" style={{ marginLeft: "27%" }} />
               <DefaultTextField label="E-mail" variant="outlined" type="email"
                                 onChange={(value) => setEmailRequest(value.target.value)} />
             </Box>
-            <Box>
+            <Box sx={{ marginLeft: "-15px" }}>
               <SkipLine paddingTop="40" />
-              <DefaultTextField label="Senha" variant="outlined" type="password"
+              <PasswordTextField label="Senha" variant="outlined" type="password"
                                 onChange={(value) => setPasswordRequest(value.target.value)} />
             </Box>
             <Box>
-              <Link href="/forgotmypassword" underline="none" style={{ color: "#0E6BA8", float: "right", marginBottom: 30 }}>
+              <Link href="/forgotmypassword" underline="none" style={{ color: "#0E6BA8", float: "right", marginBottom: 30, marginTop: 10 }}>
                 Esqueci minha senha
               </Link>
             </Box>
-            <Box>
-              <DefaultButton onClick={SignIn} backgroundColor="#0E6BA8" title="Login" />
+            <Box textAlign="center">
+              <DefaultButton onClick={SignIn} backgroundColor="#0E6BA8" title="Login" width="250px" height="50px" />
             </Box>  
-              <DefaultTypography variant="h5" color="#0E6BA8" textAlign="center" text="OU" 
+              <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" text="OU" 
                                  paddingTop="15px" paddingBottom="15px" />
-            <Box>
-              <DefaultButton href="/signup" backgroundColor="#0E6BA8" title="Registrar" />
+            <Box textAlign="center">
+              <DefaultButton href="/signup" backgroundColor="#0E6BA8" title="Registrar" width="250px" height="50px" />
             </Box>
           </div>
         </DefaultBox>

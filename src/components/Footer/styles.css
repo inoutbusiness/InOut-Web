@@ -3,7 +3,6 @@
     padding: 1rem 1 1rem 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-self: center;
 }
 
@@ -15,7 +14,7 @@
     text-align: center;
     margin-bottom: 24px;
     padding: 24px;
-    color: #ffffff;
+    color: #03112C;
 }
 
 .footer-subscription-heading {
