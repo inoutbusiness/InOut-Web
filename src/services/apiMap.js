@@ -19,7 +19,8 @@ export const ENDPOINTS = {
   sendResetPasswordCode: "forgotPassword/sendResetPasswordCode",
   emailCodeChecker: "forgotPassword/emailCodeChecker",
   resetPassword: "forgotPassword/resetPassword",
-  getAccountIdByEmail: "helper/getAccountIdByEmail"
+  getAccountIdByEmail: "helper/getAccountIdByEmail",
+  updateUserAccountInfo: "userAccount/updateUserAccountInfo"
 }
 
 export const createAPIEndpoint = (endpoint) => {
@@ -29,7 +30,7 @@ export const createAPIEndpoint = (endpoint) => {
       getAll: () => axios.get(url),
       getBy: data => axios.get(url + data),
       post: newRecord => axios.post(url, newRecord, { headers: { "Content-Type": "application/json" }}),
-      put: (id, updateRecord) => axios.put(url + id, updateRecord),
+      put: (id, updateRecord) => axios.put(`${url}/${id}`, updateRecord, { headers: { "Content-Type": "application/json" }}),
       delete: id => axios.delete(url + id)
   }
 }

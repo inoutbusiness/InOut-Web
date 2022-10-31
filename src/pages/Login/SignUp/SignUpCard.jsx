@@ -13,7 +13,6 @@ import { SkipLine } from "../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { DefaultIconButton } from "../../../components/Icons/IconButton"
 import { handleSignUp } from "../../../services/Login/signup"
-import { Footer } from "../../../components/Footer/Footer"
 
 const SignUpCard = () => {
     const [cpfCnpjRequest, setCpfCnpj] = useState("");

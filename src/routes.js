@@ -10,18 +10,18 @@ import Home from "./pages/Home/Home"
 import Profile from "./pages/Profile/Profile"
 
 export default function SetRoutes(){
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<App/>}></Route>
-                <Route path='/signin' element={<SignInCard/>}></Route>
-                <Route path='/signup' element={<SignUpCard/>}></Route>
-                <Route path="/forgotmypassword" element={<ForgotMyPasswordCard/>}></Route>
-                <Route path="/emailCodeResetPassword/:accountId" element={<EmailCodeResetPassword/>}></Route>
-                <Route path="/resetPassword/:accountId" element={<ResetPasswordCard/>}></Route>
-                <Route path="/home" element={<Home/>}></Route>
-                <Route path="/profile" element={<Profile/>}></Route>
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App/>}></Route>
+          <Route path='/signin' element={<SignInCard/>}></Route>
+          <Route path='/signup' element={<SignUpCard/>}></Route>
+          <Route path="/forgotmypassword" element={<ForgotMyPasswordCard/>}></Route>
+          <Route path="/emailCodeResetPassword/:accountId" element={<EmailCodeResetPassword/>}></Route>
+          <Route path="/resetPassword/:accountId" element={<ResetPasswordCard/>}></Route>
+          <Route path="/home" element={<Home/>}></Route>
+          <Route path="/profile" element={<Profile/>}></Route>
+          </Routes>
+    </BrowserRouter>
+  );
 };
