@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./sidebar.css"
 
+import axios from "axios"
 export default class Sidebar extends React.Component {
   state = {
     open: window.matchMedia("(min-width: 1024px)").matches || false
@@ -33,7 +34,7 @@ export default class Sidebar extends React.Component {
           </a>
           <a href="/home">Home</a>
           <a href="/profile">Profile</a>
-          <a href="/signin">Logout</a>
+          <a href="/signin" onClick={ function(){ localStorage.removeItem('accessToken'); localStorage.removeItem('accessUserInfo') } } >Logout</a>
         </div>
         <div className={classnames("main", { mainShrink: open }, { mainExpand: !open }, { noscroll: mobile && open })}>
           {this.props.content}

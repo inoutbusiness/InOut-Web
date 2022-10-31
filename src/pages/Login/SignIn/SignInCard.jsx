@@ -9,10 +9,13 @@ import { Navigate } from "react-router-dom"
 import { Grid } from "../../../components/Grid/DefaultGrid"
 import { DefaultBox } from "../../../components/Box/DefaultBox"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
-import { handleSignIn } from "../../../services/Login/signin"
 import { SkipLine } from "../../../components/SkipLine/styles"
 import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
 import { DefaultTypography } from "../../../components/Labels/Typography"
+
+import { handleSignIn } from "../../../services/Login/signin"
+import { setUserInfo } from "../../../services/Getters/lsUserInfoService"
+import { setToken } from "../../../services/Getters/lsTokenService"
 
 const SignInCard = () => {
     const [passwordRequest, setPasswordRequest] = useState("");
@@ -29,7 +32,13 @@ const SignInCard = () => {
         password: passwordRequest,
       }
 
-      handleSignIn(data).then(res => res.data.success ? setGoToHomePage(true) : console.log(res)).catch(function(err) {console.log(err); alert(err.response.data.message)})
+      handleSignIn(data)
+      .then(function(res){
+        setToken(res.data.data.tokenData.token);
+        setUserInfo(res.data.data.userAccountModel);
+        setGoToHomePage(true);
+      })
+      .catch(function(err){console.log(err); alert(err);})
     }
 
     return (
