@@ -1,10 +1,7 @@
-import "../../../styles/LoginCard.css"
-import "../../../services/apiMap"
 import React from "react"
 import logo from "../../../assets/InOutLogo-withoutBackground.png"
 
 import { Box, Link } from "@mui/material"
-import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { Grid } from "../../../components/Grid/DefaultGrid"
 import { DefaultBox } from "../../../components/Box/DefaultBox"
@@ -12,33 +9,50 @@ import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { SkipLine } from "../../../components/SkipLine/styles"
 import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
 import { DefaultTypography } from "../../../components/Labels/Typography"
-
 import { handleSignIn } from "../../../services/Login/signin"
 import { setUserInfo } from "../../../services/Getters/lsUserInfoService"
 import { setToken } from "../../../services/Getters/lsTokenService"
 
-const SignInCard = () => {
-    const [passwordRequest, setPasswordRequest] = useState("");
-    const [emailRequest, setEmailRequest] = useState("");
-    const [goToHomePage, setGoToHomePage] = useState(false);
+import "../../../styles/LoginCard.css"
+import "../../../services/apiMap"
 
-    if (goToHomePage){
+export default class SignInCard extends React.PureComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      emailRequest: "",
+      passwordRequest: "",
+      goToHomePage: false
+    };
+  }
+
+  render() {
+
+    if (this.state.goToHomePage){
       return <Navigate to="/Home" />
     }
 
     const SignIn = () => {
+
       var data = {
-        email: emailRequest,
-        password: passwordRequest,
+        email: this.state.emailRequest,
+        password: this.state.passwordRequest,
       }
 
       handleSignIn(data)
       .then(function(res){
+
         setToken(res.data.data.tokenData.token);
         setUserInfo(res.data.data.userAccountModel);
-        setGoToHomePage(true);
+        this.setState({ goToHomePage: true });
+
       })
-      .catch(function(err){console.log(err); alert(err);})
+      .catch(function(err)
+      {
+        alert(err);
+      })
     }
 
     return (
@@ -48,12 +62,12 @@ const SignInCard = () => {
             <Box sx={{ marginLeft: "-15px" }}>
               <img src={logo} alt="InOut" width="150" height="150" loading="lazy" style={{ marginLeft: "27%" }} />
               <DefaultTextField label="E-mail" variant="outlined" type="email"
-                                onChange={(value) => setEmailRequest(value.target.value)} />
+                                onChange={(value) => this.setState({ emailRequest: value.target.value })} />
             </Box>
             <Box sx={{ marginLeft: "-15px" }}>
               <SkipLine paddingTop="40" />
               <PasswordTextField label="Senha" variant="outlined" type="password"
-                                onChange={(value) => setPasswordRequest(value.target.value)} />
+                                onChange={(value) => this.setState({ passwordRequest: value.target.value })} />
             </Box>
             <Box>
               <Link href="/forgotmypassword" underline="none" style={{ color: "#0E6BA8", float: "right", marginBottom: 30, marginTop: 10 }}>
@@ -73,5 +87,4 @@ const SignInCard = () => {
       </Grid>
     );
   };
-
-export default SignInCard;
+}
