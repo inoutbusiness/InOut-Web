@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 
 import { Box } from "@mui/material";
 import { Navigate } from 'react-router-dom'; 
@@ -10,84 +10,68 @@ import { SkipLine } from "../../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
 import { handleEmailCodeChecker } from "../../../../services/Login/coderesetpasswordcard"
 
-export default class CodeResetPasswordCard extends React.PureComponent {
+export default function CodeResetPasswordCard() {
 
-  constructor(props) {
-    super(props);
+  const [codeN1, setcodeN1] = useState("");
+  const [codeN2, setcodeN2] = useState("");
+  const [codeN3, setcodeN3] = useState("");
+  const [codeN4, setcodeN4] = useState("");
+  const [codeN5, setcodeN5] = useState("");
+  const [codeN6, setcodeN6] = useState("");
+  const [goToResetPassword, setgoToResetPassword] = useState(false);
+  
+  const accountId = window.location.pathname.substring(24); // Melhorar
 
-    this.accountId = window.location.pathname.substring(24); // Melhorar
+  if (goToResetPassword){
+    var urlWithAccountId = "/resetPassword/" + accountId;
+    return <Navigate to={urlWithAccountId} />
+  };
 
-    this.state = {
-      codeN1: "",
-      codeN2: "",
-      codeN3: "",
-      codeN4: "",
-      codeN5: "",
-      codeN6: "",
-      goToResetPassword: false
-    }
+  const EmailCodeChecker = () => {
+
+    handleEmailCodeChecker(JSON.stringify(codeN1 + codeN2 + codeN3 + codeN4 + codeN5 + codeN6))
+                          .then(res => res.data.success ? setgoToResetPassword(true) : console.log(res.data.message))
+                          .catch(err => console.log(err));
   }
+  
+  return (
+    <Grid>
+      <DefaultBox width="1000" height="500">
+        <Box>
+          <SkipLine paddingTop="40" />
+          <DefaultTypography variant="h3" color="#0E6BA8" textAlign="center" paddingTop="35" text="Código enviado!" />
+        </Box>
+        <Box>
+          <SkipLine paddingTop="20" />
+          <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" paddingTop="35" 
+                             text="Enviamos um código no Email informado anteriormente, este código tem validade de X minutos 
+                                   deve ser colocado nos campos abaixo para que você possa refazer sua senha." />
+        </Box>
+        <Box textAlign="center">
+          <SkipLine paddingTop="50" />
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN1() }/>
 
-  render() {
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN2() } />
 
-    const joinCodeNums = () => {
-      return this.state.codeN1 + this.state.codeN2 + this.state.codeN3 + this.state.codeN4 + this.state.codeN5 + this.state.codeN6;
-    };
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN3() } />
 
-    if (this.state.goToResetPassword){
-      var urlWithAccountId = "/resetPassword/" + this.accountId;
-      return <Navigate to={urlWithAccountId} />
-    };
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN4() } />
 
-    const EmailCodeChecker = () => {
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN5() } />
 
-      handleEmailCodeChecker(JSON.stringify(joinCodeNums()))
-      .then
-      (
-        res => res.data.success ? this.setState({ goToResetPassword: true }) : console.log(res.data.message)
-      )
-      .catch(err => console.log(err))
-    }
-    
-    return (
-      <Grid>
-        <DefaultBox width="1000" height="500" >
-          <Box>
-            <SkipLine paddingTop="40" />
-            <DefaultTypography variant="h3" color="#0E6BA8" textAlign="center" paddingTop="35" text="Código enviado!" />
-          </Box>
-          <Box>
-            <SkipLine paddingTop="20" />
-            <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" paddingTop="35" 
-                               text="Enviamos um código no Email informado anteriormente, este código tem validade de X minutos 
-                                     e deve ser colocado nos campos abaixo para que você possa refazer sua senha." />
-          </Box>
-          <Box textAlign="center" >
-            <SkipLine paddingTop="50" />
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN1: value.target.value }) }/>
-
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN2: value.target.value })} />
-
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN3: value.target.value })} />
-
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN4: value.target.value })} />
-
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN5: value.target.value })} />
-                              
-            <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => this.setState({ codeN6: value.target.value })} />
-          </Box>
-          <Box textAlign="center">
-            <SkipLine paddingTop="80" />
-            <DefaultButton onClick={EmailCodeChecker} backgroundColor="#0E6BA8" title="Confirmar" />
-          </Box>
-        </DefaultBox>
-      </Grid>
-    );
-  }
+          <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }}
+                            width="60px" height="50px" onChange={(value) => setcodeN6() } />
+        </Box>
+        <Box textAlign="center">
+          <SkipLine paddingTop="80" />
+          <DefaultButton onClick={EmailCodeChecker} backgroundColor="#0E6BA8" title="Confirmar" />
+        </Box>
+      </DefaultBox>
+    </Grid>
+  );
 }

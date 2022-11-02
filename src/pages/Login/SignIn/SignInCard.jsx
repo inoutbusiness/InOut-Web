@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 import logo from "../../../assets/InOutLogo-withoutBackground.png"
 
 import { Box, Link } from "@mui/material"
@@ -16,75 +16,64 @@ import { setToken } from "../../../services/Getters/lsTokenService"
 import "../../../styles/LoginCard.css"
 import "../../../services/apiMap"
 
-export default class SignInCard extends React.PureComponent {
+export default function SignInCard() {
 
-  constructor(props) {
-    super(props);
+  const [emailRequest, setEmailRequest] = useState("");
+  const [passwordRequest, setpasswordRequest] = useState("");
+  const [goToHomePage, setgoToHomePage] = useState(false);
 
-    this.state = {
-      emailRequest: "",
-      passwordRequest: "",
-      goToHomePage: false
-    };
+  if (goToHomePage){
+    return <Navigate to="/Home" />
   }
 
-  render() {
+  const SignIn = () => {
 
-    if (this.state.goToHomePage){
-      return <Navigate to="/Home" />
+    var data = {
+      email: emailRequest,
+      password: passwordRequest,
     }
 
-    const SignIn = () => {
+    handleSignIn(data)
+    .then(function(res){
 
-      var data = {
-        email: this.state.emailRequest,
-        password: this.state.passwordRequest,
-      }
+      setToken(res.data.data.tokenData.token);
+      setUserInfo(res.data.data.userAccountModel);
+      setgoToHomePage(true);
+    })
+    .catch(function(err)
+    {
+      alert(err);
+    })
+  }
 
-      handleSignIn(data)
-      .then(function(res){
-
-        setToken(res.data.data.tokenData.token);
-        setUserInfo(res.data.data.userAccountModel);
-        this.setState({ goToHomePage: true });
-
-      })
-      .catch(function(err)
-      {
-        alert(err);
-      })
-    }
-
-    return (
-      <Grid style={{ backgroundColor: "#03112C" }}>
-        <DefaultBox width="400" height="600">
-          <div id="content">
-            <Box sx={{ marginLeft: "-15px" }}>
-              <img src={logo} alt="InOut" width="150" height="150" loading="lazy" style={{ marginLeft: "27%" }} />
-              <DefaultTextField label="E-mail" variant="outlined" type="email"
-                                onChange={(value) => this.setState({ emailRequest: value.target.value })} />
-            </Box>
-            <Box sx={{ marginLeft: "-15px" }}>
-              <SkipLine paddingTop="40" />
-              <PasswordTextField label="Senha" variant="outlined" type="password"
-                                onChange={(value) => this.setState({ passwordRequest: value.target.value })} />
-            </Box>
-            <Box>
-              <Link href="/forgotmypassword" underline="none" style={{ color: "#0E6BA8", float: "right", marginBottom: 30, marginTop: 10 }}>
-                Esqueci minha senha
-              </Link>
-            </Box>
-            <Box textAlign="center">
-              <DefaultButton onClick={SignIn} backgroundColor="#0E6BA8" title="Login" width="250px" height="50px" />
-            </Box>  
-              <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" text="OU" 
-                                 paddingTop="15px" paddingBottom="15px" />
-            <Box textAlign="center">
-              <DefaultButton href="/signup" backgroundColor="#0E6BA8" title="Registrar" width="250px" height="50px" />
-            </Box>
-          </div>
-        </DefaultBox>
-      </Grid>
-    );
-  };
+  return (
+    <Grid style={{ backgroundColor: "#03112C" }}>
+      <DefaultBox width="400" height="600">
+        <div id="content">
+          <Box sx={{ marginLeft: "-15px" }}>
+            <img src={logo} alt="InOut" width="150" height="150" loading="lazy" style={{ marginLeft: "27%" }} />
+            <DefaultTextField label="E-mail" variant="outlined" type="email" onChange={(value) => setEmailRequest(value.target.value) } />
+          </Box>
+          <Box sx={{ marginLeft: "-15px" }}>
+            <SkipLine paddingTop="40" />
+            <PasswordTextField label="Senha" variant="outlined" type="password" onChange={(value) => setpasswordRequest(value.target.value) } />
+          </Box>
+          <Box>
+            <Link href="/forgotmypassword" underline="none"
+              style={{ color: "#0E6BA8", float: "right", marginBottom: 30, marginTop: 10 }}>
+            Esqueci minha senha
+            </Link>
+          </Box>
+          <Box textAlign="center">
+            <DefaultButton onClick={SignIn} backgroundColor="#0E6BA8" title="Login" width="250px" height="50px" />
+          </Box>
+          <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" text="OU" paddingTop="15px"
+            paddingBottom="15px" />
+          <Box textAlign="center">
+            <DefaultButton href="/signup" backgroundColor="#0E6BA8" title="Registrar" width="250px" height="50px" />
+          </Box>
+        </div>
+      </DefaultBox>
+    </Grid>
+  );
 }
