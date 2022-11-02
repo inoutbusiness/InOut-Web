@@ -3,9 +3,7 @@ import React from "react"
 import cpfCnpjChange from "../../../commom/signinCommom"
 import InputMask from "react-input-mask"
 
-// Multiple imports
 import { Box, TextField } from "@mui/material"
-import { useState } from "react"
 import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
 import { DefaultBox } from "../../../components/Box/DefaultBox"
 import { Grid } from "../../../components/Grid/DefaultGrid"
@@ -14,29 +12,33 @@ import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { DefaultIconButton } from "../../../components/Icons/IconButton"
 import { handleSignUp } from "../../../services/Login/signup"
 
-const SignUpCard = () => {
-    const [cpfCnpjRequest, setCpfCnpj] = useState("");
-    const [emailRequest, setEmail] = useState("");
-    const [passwordRequest, setPassword] = useState("");
-    const [firstNameRequest, setFirstName] = useState("");
-    const [lastNameRequest, setLastName] = useState("");
-    const [phoneRequest, setPhoneRequest] = useState("");
+export default class SignUpCard extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-    const [values, setValues] = React.useState({
-      password: "",
-      showPassword: false,
-    });
+    this.state = {
+      cpfCnpjRequest: "",
+      emailRequest: "",
+      firstNameRequest: "",
+      lastNameRequest: "",
+      phoneRequest: "",
+      passwordRequest: "",
+      showPassword: false
+    }
+  }
 
-    const handleClickShowPassword = () => { setValues({ ...values, showPassword: !values.showPassword }); };
+  render() {
+
+    const handleClickShowPassword = () => { this.setState({ showPassword: !this.state.showPassword }); };
 
     const SignUp = () => {
       var data = {
-        Email: emailRequest,
-        Password: passwordRequest,
-        FirstName: firstNameRequest,
-        LastName: lastNameRequest,
-        CpfCnpj: cpfCnpjRequest,
-        Phone: phoneRequest.replace(/\D/g,''),
+        Email: this.state.emailRequest,
+        Password: this.state.passwordRequest,
+        FirstName: this.state.firstNameRequest,
+        LastName: this.state.lastNameRequest,
+        CpfCnpj: this.state.cpfCnpjRequest,
+        Phone: this.state.phoneRequest.replace(/\D/g,''),
         BranchId: 1
       }
 
@@ -45,53 +47,53 @@ const SignUpCard = () => {
 
     return (
         <Grid>
-          <DefaultBox width="500" height="800" >
+          <DefaultBox width="500" height="800">
             <div id="content">
               <Box>
-              <SkipLine paddingTop="40" />
-                  <DefaultTextField value={cpfCnpjRequest} variant="outlined" label="CPF/CNPJ" type="email" 
-                                    onChange={(value) => setCpfCnpj(cpfCnpjChange(value))} />
+                <SkipLine paddingTop="40" />
+                <DefaultTextField value={this.state.cpfCnpjRequest} variant="outlined" label="CPF/CNPJ" type="email"
+                  onChange={(value)=> this.setState({cpfCnpjRequest: cpfCnpjChange(value)})} />
               </Box>
               <Box>
                 <SkipLine paddingTop="40" />
-                <DefaultTextField label="E-mail" variant="outlined" type="email" 
-                                  onChange={(value) => setEmail(value.target.value)} />
+                <DefaultTextField label="E-mail" variant="outlined" type="email" onChange={(value)=>
+                  this.setState({emailRequest: value.target.value})} />
               </Box>
               <Box>
                 <SkipLine paddingTop="40" />
-                <PasswordTextField label="Senha" variant="outlined" type={values.showPassword ? "text" : "password"} 
-                                   onChange={(value) => setPassword(value.target.value)} />
-                  <DefaultIconButton onClick={handleClickShowPassword} showPassword={values.showPassword} />
+                <PasswordTextField label="Senha" variant="outlined" type={this.state.showPassword ? "text" : "password"
+                  } onChange={(value)=> this.setState({passwordRequest: value.target.value})} />
+                  <DefaultIconButton onClick={handleClickShowPassword} showPassword={this.state.showPassword} />
               </Box>
               <Box>
-                  <PasswordTextField label="Senha Novamente" variant="outlined" type={values.showPassword ? "text" : "password"}
-                                     onChange={(value) => setPassword(value.target.value)} />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultTextField label="Nome" variant="outlined" type="text" 
-                                  onChange={((value) => setFirstName(value.target.value))} />
+                <PasswordTextField label="Senha Novamente" variant="outlined" type={this.state.showPassword ? "text"
+                  : "password" } onChange={(value)=> this.setState({ passwordRequest: value.target.value })} />
               </Box>
               <Box>
                 <SkipLine paddingTop="40" />
-                <DefaultTextField label="Sobrenome" variant="outlined" type="text" 
-                                  onChange={(value) => setLastName(value.target.value)} />
+                <DefaultTextField label="Nome" variant="outlined" type="text" onChange={((value)=>
+                  this.setState({firstNameRequest: value.target.value}))} />
               </Box>
               <Box>
                 <SkipLine paddingTop="40" />
-                <InputMask mask="+99 (99) 9 9999-9999" disabled={false} maskChar=" " 
-                           onChange={(value) => setPhoneRequest(value.target.value)}>
-                          { () => <TextField label="Telefone" variant="outlined" type="text" /> }
-                  </InputMask>
+                <DefaultTextField label="Sobrenome" variant="outlined" type="text" onChange={(value)=>
+                  this.setState({lastNameRequest: value.target.value})} />
+              </Box>
+              <Box>
+                <SkipLine paddingTop="40" />
+                <InputMask mask="+99 (99) 9 9999-9999" disabled={false} maskChar=" " onChange={(value)=>
+                  this.setState({phoneRequest: value.target.value})}>
+                  { () =>
+                  <TextField label="Telefone" variant="outlined" type="text" /> }
+                </InputMask>
               </Box>
               <Box>
                 <SkipLine paddingTop="40" />
                 <DefaultButton onClick={SignUp} backgroundColor="#0E6BA8" title="Registrar" />
               </Box>
-          </div>
-        </DefaultBox>
-      </Grid>
+            </div>
+          </DefaultBox>
+        </Grid>
     );
+  }
 }
-
-export default SignUpCard;

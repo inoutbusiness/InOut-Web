@@ -14,13 +14,22 @@ const BASE_URL = URL.Matheus // <--------
 
 // Dá para separar ainda mais para ficar ainda mais organizado!
 export const ENDPOINTS = {
-  signIn: "auth/signin",
-  signUp: "auth/signup",
-  sendResetPasswordCode: "forgotPassword/sendResetPasswordCode",
-  emailCodeChecker: "forgotPassword/emailCodeChecker",
-  resetPassword: "forgotPassword/resetPassword",
-  getAccountIdByEmail: "helper/getAccountIdByEmail",
-  updateUserAccountInfo: "userAccount/updateUserAccountInfo"
+
+  auth: {
+    signIn: "auth/signin",
+    signUp: "auth/signup"
+  },
+
+  forgotPassword: {
+    sendResetPasswordCode: "forgotPassword/sendResetPasswordCode",
+    emailCodeChecker: "forgotPassword/emailCodeChecker",
+    resetPassword: "forgotPassword/resetPassword"
+  },
+
+  others: {
+    getAccountIdByEmail: "helper/getAccountIdByEmail",
+    updateUserAccountInfo: "userAccount/updateUserAccountInfo"
+  }
 }
 
 export const createAPIEndpoint = (endpoint) => {

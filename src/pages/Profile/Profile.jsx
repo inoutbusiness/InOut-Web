@@ -13,7 +13,7 @@ import { handleUpdateUserAccountInfo } from "../../services/UserAccount/profileC
 
 import "./profile.css"
 
-export default class ProfileCard extends React.PureComponent{
+export default class ProfileCard extends React.PureComponent {
   
   constructor(props) {
     super(props);

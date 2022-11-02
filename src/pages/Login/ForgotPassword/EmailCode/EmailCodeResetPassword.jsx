@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Box } from "@mui/material";
-import { useState } from "react";
-import { Navigate, useParams  } from 'react-router-dom'; 
+import { Navigate } from 'react-router-dom'; 
 import { Grid } from "../../../../components/Grid/DefaultGrid"
 import { DefaultBox } from "../../../../components/Box/DefaultBox"
 import { DefaultTypography } from "../../../../components/Labels/Typography"
@@ -10,31 +9,44 @@ import { DefaultTextField } from "../../../../components/TextField/TextField"
 import { SkipLine } from "../../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
 import { handleEmailCodeChecker } from "../../../../services/Login/coderesetpasswordcard"
-import { Footer } from "../../../../components/Footer/Footer"
 
-const CodeResetPasswordCard = () => {
-    const [codeN1, setCodeN1] = useState("");
-    const [codeN2, setCodeN2] = useState("");
-    const [codeN3, setCodeN3] = useState("");
-    const [codeN4, setCodeN4] = useState("");
-    const [codeN5, setCodeN5] = useState("");
-    const [codeN6, setCodeN6] = useState("");
-    const [goToResetPassword, setGoToResetPassword] = useState(false);
-    const params = useParams();
+export default class CodeResetPasswordCard extends React.PureComponent {
+
+  constructor(props) {
+    super(props);
+
+    this.accountId = window.location.pathname.substring(24); // Melhorar
+
+    this.state = {
+      codeN1: "",
+      codeN2: "",
+      codeN3: "",
+      codeN4: "",
+      codeN5: "",
+      codeN6: "",
+      goToResetPassword: false
+    }
+  }
+
+  render() {
 
     const joinCodeNums = () => {
-      return codeN1 + codeN2 + codeN3 + codeN4 + codeN5 + codeN6;
+      return this.state.codeN1 + this.state.codeN2 + this.state.codeN3 + this.state.codeN4 + this.state.codeN5 + this.state.codeN6;
     };
 
-    if (goToResetPassword){
-      var urlWithAccountId = "/resetPassword/" + params.accountId;
+    if (this.state.goToResetPassword){
+      var urlWithAccountId = "/resetPassword/" + this.accountId;
       return <Navigate to={urlWithAccountId} />
     };
 
     const EmailCodeChecker = () => {
 
-      handleEmailCodeChecker(JSON.stringify(joinCodeNums())).then(res => res.data.success ? setGoToResetPassword(true) : console.log(res.data.message))
-                                                            .catch(err => console.log(err))
+      handleEmailCodeChecker(JSON.stringify(joinCodeNums()))
+      .then
+      (
+        res => res.data.success ? this.setState({ goToResetPassword: true }) : console.log(res.data.message)
+      )
+      .catch(err => console.log(err))
     }
     
     return (
@@ -53,22 +65,22 @@ const CodeResetPasswordCard = () => {
           <Box textAlign="center" >
             <SkipLine paddingTop="50" />
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN1(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN1: value.target.value }) }/>
 
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN2(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN2: value.target.value })} />
 
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN3(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN3: value.target.value })} />
 
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN4(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN4: value.target.value })} />
 
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN5(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN5: value.target.value })} />
                               
             <DefaultTextField variant="outlined" type="number" inputProps={{ inputProps: { max: 9, min: 0 } }} width="60px" height="50px" 
-                              onChange={(value) => setCodeN6(value.target.value)} />
+                              onChange={(value) => this.setState({ codeN6: value.target.value })} />
           </Box>
           <Box textAlign="center">
             <SkipLine paddingTop="80" />
@@ -77,6 +89,5 @@ const CodeResetPasswordCard = () => {
         </DefaultBox>
       </Grid>
     );
+  }
 }
-
-export default CodeResetPasswordCard;
