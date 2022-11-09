@@ -1,5 +1,4 @@
-// Single imports
-import React from "react"
+import { useState } from "react"
 import cpfCnpjChange from "../../../commom/signinCommom"
 import InputMask from "react-input-mask"
 
@@ -11,7 +10,7 @@ import { SkipLine } from "../../../components/SkipLine/styles"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { DefaultIconButton } from "../../../components/Icons/IconButton"
 import { handleSignUp } from "../../../services/Login/signup"
-import { useState } from "react"
+import { COLORS } from "../../../config/defaultColors"
 
 export default function SignUpCard() {
 
@@ -39,48 +38,48 @@ export default function SignUpCard() {
     }
 
     return (
-        <Grid>
-          <DefaultBox width="500" height="800">
-            <div id="content">
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultTextField value={cpfCnpjRequest} variant="outlined" label="CPF/CNPJ" type="email"
-                  onChange={(value) => setCpfCnpjRequest(cpfCnpjChange(value)) } />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultTextField label="E-mail" variant="outlined" type="email" 
-                  onChange={(value) => setEmailRequest(value.target.value) } />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <PasswordTextField label="Senha" variant="outlined" type={showPassword ? "text" : "password" } 
-                                   onChange={(value) => setPasswordRequest(value.target.value) } />
-                  <DefaultIconButton onClick={handleClickShowPassword} showPassword={showPassword} />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultTextField label="Nome" variant="outlined" type="text" 
-                                  onChange={((value) => setFirstNameRequest(value.target.value)) } />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultTextField label="Sobrenome" variant="outlined" type="text" 
-                                  onChange={(value) => setLastNameRequest(value.target.value)} />
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <InputMask mask="+99 (99) 9 9999-9999" disabled={false} maskChar=" " 
-                          onChange={(value) => setPhoneRequest(value.target.value) }>
-                          { () => <TextField label="Telefone" variant="outlined" type="text" /> }
-                </InputMask>
-              </Box>
-              <Box>
-                <SkipLine paddingTop="40" />
-                <DefaultButton onClick={SignUp} backgroundColor="#0E6BA8" title="Registrar" />
-              </Box>
-            </div>
-          </DefaultBox>
-        </Grid>
+      <Grid backgroundColor={COLORS.SecondColor}>
+        <DefaultBox width="1000" height="800">
+          <div id="content">
+            <Box>
+              <SkipLine paddingTop="40" />
+              <DefaultTextField value={cpfCnpjRequest} variant="outlined" label="CPF/CNPJ" type="email"
+                                onChange={(value) => setCpfCnpjRequest(cpfCnpjChange(value)) } />
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <DefaultTextField label="E-mail" variant="outlined" type="email" 
+                                onChange={(value) => setEmailRequest(value.target.value) } />
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <PasswordTextField label="Senha" variant="outlined" type={showPassword ? "text" : "password" } 
+                                 onChange={(value) => setPasswordRequest(value.target.value) } />
+              <DefaultIconButton onClick={handleClickShowPassword} showPassword={showPassword} />
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <DefaultTextField label="Nome" variant="outlined" type="text" 
+                                onChange={((value) => setFirstNameRequest(value.target.value)) } />
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <DefaultTextField label="Sobrenome" variant="outlined" type="text" 
+                                onChange={(value) => setLastNameRequest(value.target.value)} />
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <InputMask mask="+99 (99) 9 9999-9999" disabled={false} maskChar=" " 
+                         onChange={(value) => setPhoneRequest(value.target.value) }>
+                         { () => <TextField label="Telefone" variant="outlined" type="text" /> }
+              </InputMask>
+            </Box>
+            <Box>
+              <SkipLine paddingTop="40" />
+              <DefaultButton onClick={SignUp} backgroundColor={COLORS.PrimaryColor} title="Registrar" />
+            </Box>
+          </div>
+        </DefaultBox>
+      </Grid>
     );
 }

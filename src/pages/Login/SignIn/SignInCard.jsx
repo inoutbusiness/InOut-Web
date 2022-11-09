@@ -12,6 +12,7 @@ import { DefaultTypography } from "../../../components/Labels/Typography"
 import { handleSignIn } from "../../../services/Login/signin"
 import { setUserInfo } from "../../../services/Getters/lsUserInfoService"
 import { setToken } from "../../../services/Getters/lsTokenService"
+import { COLORS } from "../../../config/defaultColors"
 
 import "../../../styles/LoginCard.css"
 import "../../../services/apiMap"
@@ -47,7 +48,7 @@ export default function SignInCard() {
   }
 
   return (
-    <Grid style={{ backgroundColor: "#03112C" }}>
+    <Grid backgroundColor={COLORS.SecondColor}>
       <DefaultBox width="400" height="600">
         <div id="content">
           <Box sx={{ marginLeft: "-15px" }}>
@@ -60,17 +61,17 @@ export default function SignInCard() {
           </Box>
           <Box>
             <Link href="/forgotmypassword" underline="none"
-              style={{ color: "#0E6BA8", float: "right", marginBottom: 30, marginTop: 10 }}>
+                  style={{ color: COLORS.PrimaryColor, float: "right", marginBottom: 30, marginTop: 10 }}>
             Esqueci minha senha
             </Link>
           </Box>
           <Box textAlign="center">
-            <DefaultButton onClick={SignIn} backgroundColor="#0E6BA8" title="Login" width="250px" height="50px" />
+            <DefaultButton onClick={SignIn} backgroundColor={COLORS.PrimaryColor} title="Login" width="250px" height="50px" />
           </Box>
-          <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" text="OU" paddingTop="15px"
+          <DefaultTypography variant="h6" color={COLORS.PrimaryColor} textAlign="center" text="OU" paddingTop="15px"
             paddingBottom="15px" />
           <Box textAlign="center">
-            <DefaultButton href="/signup" backgroundColor="#0E6BA8" title="Registrar" width="250px" height="50px" />
+            <DefaultButton href="/signup" backgroundColor={COLORS.PrimaryColor} title="Registrar" width="250px" height="50px" />
           </Box>
         </div>
       </DefaultBox>

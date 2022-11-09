@@ -9,6 +9,7 @@ import { DefaultButton } from "../Button/Default/DefaultButton"
 import { DefaultTextField } from "../TextField/TextField"
 import { SkipLine } from "../../components/SkipLine/styles";
 import { ProfileModalStyle, ModalDefaultStyle } from "./styles"
+import { COLORS } from "../../config/defaultColors"
 
 export function DefaultModal(props) {
   return (
@@ -59,7 +60,7 @@ export function ProfileModal(props) {
             <div> {/* Content */}
               <Box marginLeft="30%">
                 <SkipLine paddingTop="30" />
-                <ReactRoundedImage image={avatar} roundedColor="#94D9F8" imageWidth="130" imageHeight="130"/>
+                <ReactRoundedImage image={avatar} roundedColor={COLORS.ThirdColor} imageWidth="130" imageHeight="130"/>
               </Box>
                 <SkipLine paddingTop="20" />
               <Box textAlign="center">
@@ -74,10 +75,10 @@ export function ProfileModal(props) {
           </div>
           <div> {/* Footer */}
             <Box textAlign="center">
-              <DefaultButton title="Close" backgroundColor="#0E6BA8" onClick={props.onClose} width="100px" height="40px" />
+              <DefaultButton title="Close" backgroundColor={COLORS.PrimaryColor} onClick={props.onClose} width="100px" height="40px" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <DefaultButton title="Edit" backgroundColor="#0E6BA8" href={props.href} width="100px" height="40px" />
+              <DefaultButton title="Edit" backgroundColor={COLORS.PrimaryColor} href={props.href} width="100px" height="40px" />
             </Box>
           </div>
         </Box>

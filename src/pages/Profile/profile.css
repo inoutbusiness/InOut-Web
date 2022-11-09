@@ -1,3 +1,9 @@
+.container {
+    margin-left: 8%;
+    margin-top: 5%;
+    position: relative;
+}
+
 .image:hover {
     content: url("../../assets/avatarChange.png"); 
 }

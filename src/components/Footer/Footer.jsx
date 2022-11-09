@@ -1,8 +1,4 @@
-import React from 'react';
-
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-
-import "./styles.css"
 
 export function Footer() {
   return (
@@ -35,7 +31,7 @@ export function Footer() {
           </MDBRow>
         </MDBContainer>
       </section>
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.10)' }}>
         © {new Date().getFullYear()} Copyright - InOut
       </div>
     </MDBFooter>

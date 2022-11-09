@@ -9,6 +9,7 @@ import { SkipLine } from "../../../../components/SkipLine/styles"
 import { PasswordTextField } from "../../../../components/TextField/TextField"
 import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
 import { handleResetPassword } from "../../../../services/Login/resetpassword"
+import { COLORS } from "../../../../config/defaultColors"
 
 export default function ResetPasswordCard() {
 
@@ -36,7 +37,7 @@ export default function ResetPasswordCard() {
     <Grid>
       <DefaultBox width="600" height="400">
         <Box paddingTop="40px">
-          <DefaultTypography variant="h4" color="#0E6BA8" textAlign="center" paddingTop="35"
+          <DefaultTypography variant="h4" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35"
             text="Alteração de Senha" />
         </Box>
         <Box textAlign="center" paddingTop="30px">
@@ -51,7 +52,7 @@ export default function ResetPasswordCard() {
           </Box>
           <Box textAlign="center" paddingTop="30px">
             <SkipLine />
-            <DefaultButton onClick={ResetPassword} backgroundColor="#0E6BA8" title="Confirmar" />
+            <DefaultButton onClick={ResetPassword} backgroundColor={COLORS.PrimaryColor} title="Confirmar" />
           </Box>
         </Box>
       </DefaultBox>

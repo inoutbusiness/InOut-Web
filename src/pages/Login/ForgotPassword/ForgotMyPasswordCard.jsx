@@ -10,6 +10,7 @@ import { DefaultTextField } from "../../../components/TextField/TextField"
 import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
 import { handleSendResetPasswordCodeEmail } from "../../../services/Login/forgotmypassword"
 import { getAccountIdByEmail } from "../../../services/Getters/account"
+import { COLORS } from "../../../config/defaultColors"
 
 export default function ForgotMyPasswordCard() {
 
@@ -17,9 +18,9 @@ export default function ForgotMyPasswordCard() {
   const [goToResetPassword, setGoToResetPassword] = useState(false);
   const [accountId, setAccountId] = useState("");
 
-  if (goToResetPassword && accountId !== ""){                                 //////////////////////////////////////////////
-    var urlWithAccountId = "/emailCodeResetPassword/accountId=" + accountId;  // Validar a possibilidade de melhorar isso //   
-    return <Navigate to={urlWithAccountId} />                                 //////////////////////////////////////////////
+  if (goToResetPassword && accountId !== ""){
+    var urlWithAccountId = "/emailCodeResetPassword/accountId=" + accountId;  // Validar a possibilidade de melhorar isso   
+    return <Navigate to={urlWithAccountId} />
   }
   
   const SendResetPasswordCodeEmail = () => {
@@ -30,11 +31,11 @@ export default function ForgotMyPasswordCard() {
   }
     
   return (
-    <Grid>
+    <Grid backgroundColor={COLORS.SecondColor}>
       <DefaultBox width="950" height="500">
         <SkipLine paddingTop="40" />
-        <DefaultTypography variant="h3" color="#0E6BA8" textAlign="center" paddingTop="35" text="Redefina sua senha" />
-        <DefaultTypography variant="h6" color="#0E6BA8" textAlign="center" paddingTop="35"
+        <DefaultTypography variant="h3" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35" text="Redefina sua senha" />
+        <DefaultTypography variant="h6" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35"
           text="Informe seu Email e vamos enviar um código de 6 dígitos para que você possa refazer sua senha." />
         <Box textAlign="center">
           <SkipLine paddingTop="80" />
@@ -43,7 +44,7 @@ export default function ForgotMyPasswordCard() {
         </Box>
         <Box textAlign="center">
           <SkipLine paddingTop="100" />
-          <DefaultButton onClick={SendResetPasswordCodeEmail} backgroundColor="#0E6BA8" title="Enviar Código" />
+          <DefaultButton onClick={SendResetPasswordCodeEmail} backgroundColor={COLORS.PrimaryColor} title="Enviar Código" />
         </Box>
       </DefaultBox>
     </Grid>
