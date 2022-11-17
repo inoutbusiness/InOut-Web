@@ -2,10 +2,13 @@ import classnames from "classnames";
 import Header from "../Header/Header";
 
 import { useState } from "react";
+import { SubMenu } from "../Submenu/Submenu.jsx";
+import { SidebarData } from "../Submenu/sidebarData";
 import { COLORS } from "../../config/defaultColors";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./sidebar.css"
+
 
 export default function Sidebar(props) {
   const [open, setOpen] = useState(true);
@@ -15,11 +18,6 @@ export default function Sidebar(props) {
     setOpen(!open)
   }
 
-  const onLogout = () => {
-    localStorage.removeItem('accessToken'); 
-    localStorage.removeItem('accessUserInfo');
-  }
-
   return (
     <div>
       <div className="navHeaderWrap" style={{ backgroundColor: COLORS.PrimaryColor }}>
@@ -27,11 +25,10 @@ export default function Sidebar(props) {
       </div>
       <div className="bodyWrap">
         <div className={classnames({ blur: mobile && open })} style={{ backgroundColor: COLORS.SecondColor }} />
-        <div className={classnames("sidenav", { sidenavOpen: open }, { sidenavClose: !open })}
-          style={{ backgroundColor: COLORS.SecondColor }}>
-          <a href="/home">Home</a>
-          <a href="/profile">Profile</a>
-          <a href="/signin" onClick={onLogout}>Logout</a>
+        <div className={classnames("sidenav", { sidenavOpen: open }, { sidenavClose: !open })} style={{ backgroundColor: COLORS.SecondColor }}>
+          {SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+          })}
         </div>
         <div className={classnames("main", { mainShrink: open }, { mainExpand: !open }, { noscroll: mobile && open })}>
           {props.content}

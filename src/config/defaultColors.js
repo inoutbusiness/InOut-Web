@@ -1,6 +1,6 @@
 export const COLORS = {
     PrimaryColor: '#0E6BA8',
-    SecondColor: '#03112C',
+    SecondColor: '#041A42',
     ThirdColor: '#94D9F8',
     DetailsColor: '#F2F2F2'
 
@@ -9,10 +9,18 @@ export const COLORS = {
     //#6C757D
 
     //#FFFFFF
+
+    //#9A51E0
+
+    //#CC92FF
+
+    //#2A2C35  < mt bom
+
+    //#FBFBFB
 }
 
 export const BACKGROUNDS = {
-    WhiteTheme: '#E2E5DE',
+    WhiteTheme: '#FBFBFB',
     BlackTheme: '#052331'
 }
 

@@ -27,6 +27,8 @@ export default function ProfileCard() {
 
   const UpdateUserAccountInfo = () => {
 
+    // useState({ FirstName: "", LastName: "" })
+
     var dataRequest = {
       FirstName: userInfoFirstName,
       LastName: userInfoLastName,
@@ -56,48 +58,50 @@ export default function ProfileCard() {
         <Sidebar content={ 
           <div>
             <div style={{ marginLeft: "10%" }}>
-              <DefaultBox width="1200" height="650">
+              <DefaultBox width="1100" height="600">
                 <div className="container">
-                  <Box sx={{ float: "left" }}>
-                    <DefaultTextField label="E-mail" variant="standard" type="email" value={ userInfoEmail }
-                                      onChange={(e)=> setUserInfoEmail(e.target.value) } />
-                    <SkipLine paddingTop="50" />
-                    <DefaultTextField label="FirstName" variant="standard" type="text" value={ userInfoFirstName } 
-                                      onChange={(e)=> setUserInfoFirstName(e.target.value) } />
-                    <SkipLine paddingTop="50" />
-                    <DefaultTextField label="LastName" variant="standard" type="text" value={ userInfoLastName } onChange={(e)=> setUserInfoLastName(e.target.value) } />
-                  </Box>
-                  <Box sx={{ float: "left", marginLeft: "5%", position: "relative" }}>
-                    <DefaultTextField label="CpfCnpj" variant="standard" type="text" value={ userInfoCpfCnpj }
-                                      onChange={(e)=> setUserInfoCpfCnpj(e.target.value) } />
+                  <div>
+                    <Box sx={{ float: "left" }}>
+                      <DefaultTextField label="E-mail" variant="standard" type="email" value={ userInfoEmail }
+                                        onChange={(e)=> setUserInfoEmail(e.target.value) } />
                       <SkipLine paddingTop="50" />
-                      <DefaultTextField label="Phone" variant="standard" type="text" value={ userInfoPhone }
-                                      onChange={(e)=> setUserInfoPhone(e.target.value) } />
+                      <DefaultTextField label="FirstName" variant="standard" type="text" value={ userInfoFirstName } 
+                                        onChange={(e)=> setUserInfoFirstName(e.target.value) } />
                       <SkipLine paddingTop="50" />
-                      <DefaultTextField label="BirthDate" variant="standard" type="text" value={ userInfoBirthDate } onChange={(e)=> setUserInfoBirthDate(e.target.value) } />
-                  </Box>
-                  <Box sx={{ float: "left", marginLeft: "12%", marginTop: "5.4%", position: "relative" }}>
-                    <img class="image" src={avatar} alt="<3>" 
-                         style={{ height: 150,
-                                  width: 150,
-                                  maxHeight: { xs: 310, md: 250 },
-                                  maxWidth: { xs: 250, md: 250 },
-                                  border: "solid 1px",
-                                  borderRadius: "10%" }} 
-                     />
-                  </Box>
+                      <DefaultTextField label="LastName" variant="standard" type="text" value={ userInfoLastName } onChange={(e)=> setUserInfoLastName(e.target.value) } />
+                    </Box>
+                    <Box sx={{ float: "left", marginLeft: "5%", position: "relative" }}>
+                      <DefaultTextField label="CpfCnpj" variant="standard" type="text" value={ userInfoCpfCnpj }
+                                        onChange={(e)=> setUserInfoCpfCnpj(e.target.value) } />
+                        <SkipLine paddingTop="50" />
+                        <DefaultTextField label="Phone" variant="standard" type="text" value={ userInfoPhone }
+                                        onChange={(e)=> setUserInfoPhone(e.target.value) } />
+                        <SkipLine paddingTop="50" />
+                        <DefaultTextField label="BirthDate" variant="standard" type="text" value={ userInfoBirthDate } onChange={(e)=> setUserInfoBirthDate(e.target.value) } />
+                    </Box>
+                    <Box sx={{ float: "left", marginLeft: "6%", marginTop: "5.4%", position: "relative" }}>
+                      <img class="image" src={avatar} alt="<3>" 
+                           style={{ height: 150,
+                                    width: 150,
+                                    maxHeight: { xs: 310, md: 250 },
+                                    maxWidth: { xs: 250, md: 250 },
+                                    border: "solid 1px",
+                                    borderRadius: "10%" }} 
+                       />
+                    </Box>
+                  </div>
                   <Box sx={{ position: "absolute", marginTop: "40%" }}>
-                      <DefaultButton backgroundColor={COLORS.PrimaryColor} title="Atualizar" 
-                                     onClick={UpdateUserAccountInfo} width="300px" height="50px" />
+                    <DefaultButton backgroundColor={COLORS.PrimaryColor} title="Atualizar" 
+                                   onClick={UpdateUserAccountInfo} width="300px" height="50px" />
                   </Box>
                 </div>
               </DefaultBox>
             </div>
-          </div>
+            <div>
+              <Footer />
+            </div>
+        </div>
         }/>
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );
