@@ -14,7 +14,7 @@ export function DefaultTextField(props) {
             disabled={props.disabled}
             style={{
                 width: props.width ?? 320,
-                height: props.height,
+                height: props.height ?? 5,
                 backgroundColor: "#fff"
             }}
         >

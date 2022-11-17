@@ -1,5 +1,5 @@
-import Sidebar from "../../components/Sidebar/Sidebar"
 import React from "react"
+import Sidebar from "../../components/Sidebar/Sidebar"
 
 import { Footer } from "../../components/Footer/Footer"
 import { BACKGROUNDS } from "../../config/defaultColors"
@@ -10,12 +10,14 @@ export default function HomeCard() {
       <div style={{ backgroundColor: BACKGROUNDS.WhiteTheme }}>
         <Sidebar content={ 
           <div>
-
+            <div>
+              
+            </div>
+            <div>
+              <Footer />
+            </div>
           </div>
         }/>
-      </div>
-      <div>
-        <Footer />
       </div>
     </div>
   );

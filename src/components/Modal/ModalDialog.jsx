@@ -65,11 +65,11 @@ export function ProfileModal(props) {
                 <SkipLine paddingTop="20" />
               <Box textAlign="center">
                 <DefaultTextField label="Name" width="300px" disabled="true" value={`${userInfo.firstName} ${userInfo.lastName}`} />
-                  <Box marginBottom="10px" />
+                  <Box marginBottom="50px" />
                 <DefaultTextField label="Email" width="300px" disabled="true" value={userInfo.email ?? ''} />
-                  <Box marginBottom="10px" />
+                  <Box marginBottom="50px" />
                 <DefaultTextField label="CpfCnpj" width="300px" disabled="true" value={userInfo.cpfCnpj ?? ''} />
-                  <Box marginBottom="20px" />
+                  <Box marginBottom="50px" />
               </Box>
             </div>
           </div>

@@ -1,6 +1,6 @@
-import { useState } from "react"
 import logo from "../../../assets/InOutLogo-withoutBackground.png"
 
+import { useState } from "react"
 import { Box, Link } from "@mui/material"
 import { Navigate } from "react-router-dom"
 import { Grid } from "../../../components/Grid/DefaultGrid"
@@ -23,6 +23,7 @@ export default function SignInCard() {
   const [passwordRequest, setpasswordRequest] = useState("");
   const [goToHomePage, setgoToHomePage] = useState(false);
 
+
   if (goToHomePage){
     return <Navigate to="/Home" />
   }
@@ -37,6 +38,7 @@ export default function SignInCard() {
     handleSignIn(data)
     .then(function(res){
 
+      window.addEventListener('load', console.log('loading...'))
       setToken(res.data.data.tokenData.token);
       setUserInfo(res.data.data.userAccountModel);
       setgoToHomePage(true);
@@ -52,7 +54,7 @@ export default function SignInCard() {
       <DefaultBox width="400" height="600">
         <div id="content">
           <Box sx={{ marginLeft: "-15px" }}>
-            <img src={logo} alt="InOut" width="150" height="150" loading="lazy" style={{ marginLeft: "27%" }} />
+            <img src={logo} alt="InOut" width="150" height="150" style={{ marginLeft: "27%", marginTop: "10%" }} />
             <DefaultTextField label="E-mail" variant="outlined" type="email" onChange={(value) => setEmailRequest(value.target.value) } />
           </Box>
           <Box sx={{ marginLeft: "-15px" }}>
@@ -69,7 +71,7 @@ export default function SignInCard() {
             <DefaultButton onClick={SignIn} backgroundColor={COLORS.PrimaryColor} title="Login" width="250px" height="50px" />
           </Box>
           <DefaultTypography variant="h6" color={COLORS.PrimaryColor} textAlign="center" text="OU" paddingTop="15px"
-            paddingBottom="15px" />
+                             paddingBottom="15px" />
           <Box textAlign="center">
             <DefaultButton href="/signup" backgroundColor={COLORS.PrimaryColor} title="Registrar" width="250px" height="50px" />
           </Box>

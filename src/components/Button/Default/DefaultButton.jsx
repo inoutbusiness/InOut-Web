@@ -20,3 +20,16 @@ export function DefaultButton(props) {
             </Button>
     )
 }
+
+export function MultistepButton(props) {
+    return (
+            <Button
+                href={props.href}
+                onClick={props.onClick}
+                className={props.className}
+                style={props.style}
+            >
+            {props.title}
+            </Button>
+    )
+}
