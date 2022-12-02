@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import { Box } from "@mui/material";
 import { Navigate } from 'react-router-dom'; 
-import { Grid } from "../../../../components/Grid/DefaultGrid"
-import { DefaultBox } from "../../../../components/Box/DefaultBox"
-import { DefaultTypography } from "../../../../components/Labels/Typography"
-import { DefaultTextField } from "../../../../components/TextField/TextField"
-import { SkipLine } from "../../../../components/SkipLine/styles"
-import { DefaultButton } from "../../../../components/Button/Default/DefaultButton"
+import { Grid } from "../../../../components/Basic/Grid/DefaultGrid"
+import { DefaultBox } from "../../../../components/Basic/Box/DefaultBox"
+import { DefaultTypography } from "../../../../components/Basic/Labels/Typography"
+import { DefaultTextField } from "../../../../components/Basic/TextField/TextField"
+import { SkipLine } from "../../../../components/Basic/SkipLine/styles"
+import { DefaultButton } from "../../../../components/Basic/Button/Default/DefaultButton"
 import { handleEmailCodeChecker } from "../../../../services/Login/coderesetpasswordcard"
 import { COLORS } from "../../../../config/defaultColors"
 
@@ -36,7 +36,7 @@ export default function CodeResetPasswordCard() {
   
   return (
     <Grid backgroundColor={COLORS.SecondColor}>
-      <DefaultBox width="1000" height="500">
+      <DefaultBox width="1000px" height="500px">
         <Box>
           <SkipLine paddingTop="40" />
           <DefaultTypography variant="h3" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35" text="Código enviado!" />

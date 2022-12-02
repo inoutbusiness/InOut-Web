@@ -3,12 +3,12 @@ import logo from "../../../assets/InOutLogo-withoutBackground.png"
 import { useState } from "react"
 import { Box, Link } from "@mui/material"
 import { Navigate } from "react-router-dom"
-import { Grid } from "../../../components/Grid/DefaultGrid"
-import { DefaultBox } from "../../../components/Box/DefaultBox"
-import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
-import { SkipLine } from "../../../components/SkipLine/styles"
-import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
-import { DefaultTypography } from "../../../components/Labels/Typography"
+import { Grid } from "../../../components/Basic/Grid/DefaultGrid"
+import { DefaultBox } from "../../../components/Basic/Box/DefaultBox"
+import { DefaultButton } from "../../../components/Basic/Button/Default/DefaultButton"
+import { SkipLine } from "../../../components/Basic/SkipLine/styles"
+import { DefaultTextField, PasswordTextField } from "../../../components/Basic/TextField/TextField"
+import { DefaultTypography } from "../../../components/Basic/Labels/Typography"
 import { handleSignIn } from "../../../services/Login/signin"
 import { setUserInfo } from "../../../services/Getters/lsUserInfoService"
 import { setToken } from "../../../services/Getters/lsTokenService"
@@ -49,17 +49,25 @@ export default function SignInCard() {
     })
   }
 
+  const keyPress = (e) => {
+    if (e.key === 'Enter'){
+      SignIn();
+    }
+  }
+
   return (
     <Grid backgroundColor={COLORS.SecondColor}>
-      <DefaultBox width="400" height="600">
+      <DefaultBox width="400px" height="600px" marginLeft="0%" marginTop="0%">
         <div id="content">
           <Box sx={{ marginLeft: "-15px" }}>
             <img src={logo} alt="InOut" width="150" height="150" style={{ marginLeft: "27%", marginTop: "10%" }} />
-            <DefaultTextField label="E-mail" variant="outlined" type="email" onChange={(value) => setEmailRequest(value.target.value) } />
+            <DefaultTextField label="E-mail" variant="outlined" type="email"
+                              onChange={(value) => setEmailRequest(value.target.value) } onKeyPress={(e) => keyPress(e)} />
           </Box>
           <Box sx={{ marginLeft: "-15px" }}>
             <SkipLine paddingTop="40" />
-            <PasswordTextField label="Senha" variant="outlined" type="password" onChange={(value) => setpasswordRequest(value.target.value) } />
+            <PasswordTextField label="Senha" variant="outlined" type="password" 
+                               onChange={(value) => setpasswordRequest(value.target.value) } onKeyPress={(e) => keyPress(e)} />
           </Box>
           <Box>
             <Link href="/forgotmypassword" underline="none"

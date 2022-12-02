@@ -1,18 +1,18 @@
 import React, { useState } from "react"
-import Sidebar from "../../components/Sidebar/Sidebar"
+import Sidebar from "../../components/Structured/Sidebar/Sidebar"
 import avatar from "../../assets/avatar.png"
 
-import { Footer } from "../../components/Footer/Footer"
-import { DefaultBox } from "../../components/Box/DefaultBox";
-import { DefaultTextField } from "../../components/TextField/TextField";
-import { DefaultButton } from "../../components/Button/Default/DefaultButton";
+import { Footer } from "../../components/Structured/Footer/Footer"
+import { DefaultBox } from "../../components/Basic/Box/DefaultBox";
+import { DefaultTextField } from "../../components/Basic/TextField/TextField";
+import { DefaultButton } from "../../components/Basic/Button/Default/DefaultButton";
 import { Box } from "@mui/system";
-import { SkipLine } from "../../components/SkipLine/styles";
+import { SkipLine } from "../../components/Basic/SkipLine/styles";
 import { getUserId, setUserInfo } from "../../services/Getters/lsUserInfoService"
 import { handleUpdateUserAccountInfo } from "../../services/UserAccount/profileCallAPI"
 import { COLORS, BACKGROUNDS } from "../../config/defaultColors"
 
-import "./profile.css"
+import "./styles.css"
 
 export default function ProfileCard() {
 
@@ -58,10 +58,10 @@ export default function ProfileCard() {
         <Sidebar content={ 
           <div>
             <div style={{ marginLeft: "10%" }}>
-              <DefaultBox width="1100" height="600">
+              <DefaultBox width="1100px" height="600px">
                 <div className="container">
                   <div>
-                    <Box sx={{ float: "left" }}>
+                    <Box sx={{ float: "left", marginTop: "5%" }}>
                       <DefaultTextField label="E-mail" variant="standard" type="email" value={ userInfoEmail }
                                         onChange={(e)=> setUserInfoEmail(e.target.value) } />
                       <SkipLine paddingTop="50" />
@@ -70,7 +70,7 @@ export default function ProfileCard() {
                       <SkipLine paddingTop="50" />
                       <DefaultTextField label="LastName" variant="standard" type="text" value={ userInfoLastName } onChange={(e)=> setUserInfoLastName(e.target.value) } />
                     </Box>
-                    <Box sx={{ float: "left", marginLeft: "5%", position: "relative" }}>
+                    <Box sx={{ float: "left", marginLeft: "5%", position: "relative", marginTop: "5%" }}>
                       <DefaultTextField label="CpfCnpj" variant="standard" type="text" value={ userInfoCpfCnpj }
                                         onChange={(e)=> setUserInfoCpfCnpj(e.target.value) } />
                         <SkipLine paddingTop="50" />
@@ -79,7 +79,7 @@ export default function ProfileCard() {
                         <SkipLine paddingTop="50" />
                         <DefaultTextField label="BirthDate" variant="standard" type="text" value={ userInfoBirthDate } onChange={(e)=> setUserInfoBirthDate(e.target.value) } />
                     </Box>
-                    <Box sx={{ float: "left", marginLeft: "6%", marginTop: "5.4%", position: "relative" }}>
+                    <Box sx={{ float: "left", marginLeft: "6%", marginTop: "10%", position: "relative" }}>
                       <img class="image" src={avatar} alt="<3>" 
                            style={{ height: 150,
                                     width: 150,

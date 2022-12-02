@@ -1,7 +1,7 @@
 import React from "react"
-import Sidebar from "../../components/Sidebar/Sidebar"
+import Sidebar from "../../components/Structured/Sidebar/Sidebar"
 
-import { Footer } from "../../components/Footer/Footer"
+import { Footer } from "../../components/Structured/Footer/Footer"
 import { BACKGROUNDS } from "../../config/defaultColors"
 
 export default function HomeCard() {

@@ -28,7 +28,8 @@ export const ENDPOINTS = {
 
   others: {
     getAccountIdByEmail: "helper/getAccountIdByEmail",
-    updateUserAccountInfo: "userAccount/updateUserAccountInfo"
+    updateUserAccountInfo: "userAccount/updateUserAccountInfo",
+    getAllUsers: "helper/getAllUsersInfo"
   }
 }
 

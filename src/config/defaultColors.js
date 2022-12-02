@@ -20,7 +20,7 @@ export const COLORS = {
 }
 
 export const BACKGROUNDS = {
-    WhiteTheme: '#FBFBFB',
+    WhiteTheme: '#F1F2F7',
     BlackTheme: '#052331'
 }
 
