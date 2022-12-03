@@ -3,12 +3,12 @@ import cpfCnpjChange from "../../../commom/signinCommom"
 import InputMask from "react-input-mask"
 
 import { Box, TextField } from "@mui/material"
-import { DefaultTextField, PasswordTextField } from "../../../components/TextField/TextField"
-import { DefaultBox } from "../../../components/Box/DefaultBox"
-import { Grid } from "../../../components/Grid/DefaultGrid"
-import { SkipLine } from "../../../components/SkipLine/styles"
-import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
-import { DefaultIconButton } from "../../../components/Icons/IconButton"
+import { DefaultTextField, PasswordTextField } from "../../../components/Basic/TextField/TextField"
+import { DefaultBox } from "../../../components/Basic/Box/DefaultBox"
+import { Grid } from "../../../components/Basic/Grid/DefaultGrid"
+import { SkipLine } from "../../../components/Basic/SkipLine/styles"
+import { DefaultButton } from "../../../components/Basic/Button/Default/DefaultButton"
+import { DefaultIconButton } from "../../../components/Basic/Icons/IconButton"
 import { handleSignUp } from "../../../services/Login/signup"
 import { COLORS } from "../../../config/defaultColors"
 
@@ -39,7 +39,7 @@ export default function SignUpCard() {
 
     return (
       <Grid backgroundColor={COLORS.SecondColor}>
-        <DefaultBox width="1000" height="800">
+        <DefaultBox width="1000px" height="800px">
           <div id="content">
             <Box>
               <SkipLine paddingTop="40" />

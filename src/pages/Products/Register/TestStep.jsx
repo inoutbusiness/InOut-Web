@@ -1,6 +1,6 @@
-import { DefaultTextField } from "../../../components/TextField/TextField";
+import { DefaultTextField } from "../../../components/Basic/TextField/TextField";
 import { Box } from "@mui/system";
-import { SkipLine } from "../../../components/SkipLine/styles"
+import { SkipLine } from "../../../components/Basic/SkipLine/styles"
 
 export default function TestStep({ formData, setFormData }) {
 

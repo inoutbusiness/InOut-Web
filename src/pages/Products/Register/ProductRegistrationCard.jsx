@@ -1,11 +1,11 @@
 import React from "react"
-import Sidebar from "../../../components/Sidebar/Sidebar"
+import Sidebar from "../../../components/Structured/Sidebar/Sidebar"
 
 import { useState } from "react";
-import { Footer } from "../../../components/Footer/Footer"
+import { Footer } from "../../../components/Structured/Footer/Footer"
 import { BACKGROUNDS } from "../../../config/defaultColors"
-import { DefaultBox } from "../../../components/Box/DefaultBox"
-import { DefaultMultistep } from "../../../components/Multistep/MultistepForm"
+import { DefaultBox } from "../../../components/Basic/Box/DefaultBox"
+import { DefaultMultistep } from "../../../components/Structured/Multistep/MultistepForm"
 
 import TestStep from "./TestStep"
 
@@ -28,8 +28,8 @@ export default function ProductRegistrationCard() {
       <div style={{ backgroundColor: BACKGROUNDS.WhiteTheme }}>
         <Sidebar content={ 
           <div>
-            <div style={{ marginLeft: "10%" }}>
-              <DefaultBox width="1200" height="700">
+            <div style={{ marginLeft: "5%" }}>
+              <DefaultBox width="1200px" height="700px">
                 <DefaultMultistep steps={steps} />
               </DefaultBox>
             </div>

@@ -2,12 +2,12 @@ import { useState } from "react"
 
 import { Box } from "@mui/material"
 import { Navigate } from "react-router-dom"
-import { DefaultBox } from "../../../components/Box/DefaultBox"
-import { Grid } from "../../../components/Grid/DefaultGrid"
-import { DefaultTypography } from "../../../components/Labels/Typography"
-import { SkipLine } from "../../../components/SkipLine/styles"
-import { DefaultTextField } from "../../../components/TextField/TextField"
-import { DefaultButton } from "../../../components/Button/Default/DefaultButton"
+import { DefaultBox } from "../../../components/Basic/Box/DefaultBox"
+import { Grid } from "../../../components/Basic/Grid/DefaultGrid"
+import { DefaultTypography } from "../../../components/Basic/Labels/Typography"
+import { SkipLine } from "../../../components/Basic/SkipLine/styles"
+import { DefaultTextField } from "../../../components/Basic/TextField/TextField"
+import { DefaultButton } from "../../../components/Basic/Button/Default/DefaultButton"
 import { handleSendResetPasswordCodeEmail } from "../../../services/Login/forgotmypassword"
 import { getAccountIdByEmail } from "../../../services/Getters/account"
 import { COLORS } from "../../../config/defaultColors"
@@ -32,7 +32,7 @@ export default function ForgotMyPasswordCard() {
     
   return (
     <Grid backgroundColor={COLORS.SecondColor}>
-      <DefaultBox width="950" height="500">
+      <DefaultBox width="950px" height="500px">
         <SkipLine paddingTop="40" />
         <DefaultTypography variant="h3" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35" text="Redefina sua senha" />
         <DefaultTypography variant="h6" color={COLORS.PrimaryColor} textAlign="center" paddingTop="35"
