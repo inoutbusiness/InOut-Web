@@ -49,3 +49,22 @@ export const SidebarData = [
     ]
   }
 ];
+
+export const SidebarDataCollapsed = [
+  {
+    path: '/home',
+    icon: <CiIcons.CiHome />,
+  },
+  {
+    path: '/profile',
+    icon: <CiIcons.CiUser />
+  },
+  {
+    path: '#',
+    icon: <CiIcons.CiShop />,
+  },
+  {
+    path: '#',
+    icon: <CiIcons.CiSettings />,
+  }
+];
