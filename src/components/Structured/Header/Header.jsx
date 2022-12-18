@@ -30,17 +30,13 @@ export default function Header(props) {
   return (
     <div>
       <Navbar color="" light expand="md">
-        <NavbarBrand>
-          <span style={{ float: "right", color: COLORS.DetailsColor }} onClick={props.ontoggleNav}>
-            <FaIcons.FaBars />
-          </span>
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
         <Collapse style={{position: "fixed", marginLeft: "70%"}} isOpen={open} navbar>
           <Nav className="ml-auto" navbar>
-            <IconButton onClick={(event) => setProfileOptionsPosition(event.currentTarget)}>
-              <Avatar />
-            </IconButton>
+            <div style={{ marginTop: "75%" }}>
+              <IconButton onClick={(event) => setProfileOptionsPosition(event.currentTarget)}>
+                <Avatar />
+              </IconButton>
+            </div>
             <Menu anchorEl={profileOptionsPosition} open={profileOptionsPosition} onClose={() => setProfileOptionsPosition(null)}>
               <MenuItem onClick={openProfile}>Profile</MenuItem>
               <MenuItem component="a" href="/signin" onClick={onLogout}>Logout</MenuItem>

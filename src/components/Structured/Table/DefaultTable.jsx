@@ -14,6 +14,7 @@ export function DefaultTable(props) {
         //PaginationComponent={Pagination}
         columns={props.columns}
         rowsText={props.title}
+        r
       />
     </div>
   );
