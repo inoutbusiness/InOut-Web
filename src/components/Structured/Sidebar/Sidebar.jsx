@@ -21,11 +21,10 @@ export default function Sidebar(props) {
 
   return (
     <div>
-      <div className={open ? "navHeaderWrap" : "navHeaderWrapClosed"} style={{ backgroundColor: COLORS.PrimaryColor }}>
+      <div className="navHeaderWrap" style={{ backgroundColor: COLORS.PrimaryColor }}>
         <Header />
       </div>
         <div className="bodyWrap">
-        <div className={classnames({ blur: mobile && open })} style={{ backgroundColor: COLORS.SecondColor }} />
         <div className={classnames("sidenav", { sidenavOpen: open }, { sidenavClose: !open })} style={{ backgroundColor: COLORS.SecondColor }}>
           {
             open
@@ -37,10 +36,10 @@ export default function Sidebar(props) {
           </div>
           :
           <div style={{ color: "#F1F2F7", marginLeft: "30%", marginTop: "-10%", fontSize: "25px" }}>
-          <span onClick={onToggleNav}>
-            <FaIcons.FaBars />
-          </span>
-        </div>
+           <span onClick={onToggleNav}>
+             <FaIcons.FaBars />
+           </span>
+		  </div>
           }
         <div style={{ marginTop: "50px" }}>
           { open 

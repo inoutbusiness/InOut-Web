@@ -11,7 +11,7 @@ const Li = styled('li')`
   line-height: 4.8rem;
   padding: 0 5rem;
   cursor: pointer;
-  color: silver;
+  color: black;
   border-bottom: 2px solid silver;
   &:hover,
   &:before {
@@ -21,7 +21,7 @@ const Li = styled('li')`
     content: "\\00a0\\00a0";
   }   
   span {
-    padding: 0 1.5rem;
+    padding: 0 3.5rem;
   }
   &:before {
     position: relative;

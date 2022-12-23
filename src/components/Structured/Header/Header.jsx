@@ -1,22 +1,15 @@
-import * as FaIcons from "react-icons/fa";
-
 import { useState } from "react";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap"
+import { Collapse, Navbar, Nav } from "reactstrap"
 import { IconButton, Menu, Avatar, MenuItem } from "@mui/material"
 import { ProfileModal } from "../../Structured/Modal/ModalDialog"
-import { COLORS } from "../../../config/defaultColors"
 
 
-export default function Header(props) {
+export default function Header() {
 
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [profileOptionsPosition, setProfileOptionsPosition] = useState(null);
   
-  const toggle = () => {
-    setOpen(!open);
-  }
-
   const onLogout = () => {
     localStorage.removeItem('accessToken'); 
     localStorage.removeItem('accessUserInfo');
