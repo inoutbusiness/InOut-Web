@@ -15,7 +15,7 @@ export function DefaultTextField(props) {
       onKeyPress={props.onKeyPress}
       style={{
         width: props.width ?? 320,
-        height: props.height ?? 5,
+        height: props.height ?? 50,
         backgroundColor: "#fff"
       }}
     >
@@ -36,7 +36,7 @@ export function PasswordTextField(props) {
       onKeyPress={props.onKeyPress}
       style={{
         width: props.width ?? 320,
-        height: props.height,
+        height: props.height ?? 50,
         backgroundColor: "white"
       }}
     >
@@ -56,10 +56,28 @@ export function SearchTextField(props) {
       onKeyPress={props.onKeyPress}
       style={{
         backgroundColor: "white",
-        height: props.height ?? 45,
+        height: props.height ?? 50,
         width: props.width ?? 800,
         marginTop: props.marginTop,
         marginLeft: props.marginLeft
+      }}
+    >
+    </TextField>
+  )
+}
+
+export function DefaultTextArea(props) {
+  return (
+    <TextField
+      value={props.value}
+      onChange={props.onChange}
+      id="outlined-multiline-static"
+      label={props.label}
+      multiline
+      rows={props.rows}
+      variant="outlined"
+      style={{
+        width: props.width
       }}
     >
     </TextField>

@@ -6,11 +6,11 @@ export function DefaultMultistep(props){
   const buttonsStyle = { 
     background: "#33c3f0",
     color: "#ffff",
-    width: 280, 
+    width: 200, 
     height: 45,
     borderRadius: 25,
     fontWeight: "bold",
-    fontSize: 15 
+    fontSize: 15,
   }
 
   return (

@@ -14,6 +14,22 @@ export const SidebarData = [
     icon: <CiIcons.CiUser />
   },
   {
+    title: 'Estoque',
+    path: '#',
+    icon: <CiIcons.CiBarcode />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Movimentações',
+        path: '/stock/moviments',
+        icon: <CiIcons.CiRepeat />,
+        cName: 'sub-nav'
+      }
+    ]
+  },
+  {
     title: 'Produtos',
     path: '#',
     icon: <CiIcons.CiShop />,
@@ -24,11 +40,57 @@ export const SidebarData = [
       {
         title: 'Cadastro',
         path: '/productRegistration',
+        icon: <CiIcons.CiCirclePlus />,
         cName: 'sub-nav'
       },
       {
         title: 'Visualização',
         path: '/productVisualization',
+        icon: <CiIcons.CiLaptop />,
+        cName: 'sub-nav'
+      }
+    ]
+  },
+  {
+    title: 'Marcas',
+    path: '#',
+    icon: <CiIcons.CiShoppingTag />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Cadastro',
+        path: '/brandRegistration',
+        icon: <CiIcons.CiCirclePlus />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Visualização',
+        path: '/brandVisualization',
+        icon: <CiIcons.CiLaptop />,
+        cName: 'sub-nav'
+      }
+    ]
+  },
+  {
+    title: 'Fornecedores',
+    path: '#',
+    icon: <CiIcons.CiDeliveryTruck />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+
+    subNav: [
+      {
+        title: 'Cadastro',
+        path: '/brandRegistration',
+        icon: <CiIcons.CiCirclePlus />,
+        cName: 'sub-nav'
+      },
+      {
+        title: 'Visualização',
+        path: '/brandVisualization',
+        icon: <CiIcons.CiLaptop />,
         cName: 'sub-nav'
       }
     ]
@@ -37,14 +99,16 @@ export const SidebarData = [
     title: 'Configurações',
     path: '#',
     icon: <CiIcons.CiSettings />,
-
+  
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-
+  
     subNav: [
       {
-        title: 'Message 1',
-        path: '#',
+        title: 'Cores',
+        path: '#',        
+        icon: <CiIcons.CiPickerHalf />,
+        cName: 'sub-nav'
       },
     ]
   }

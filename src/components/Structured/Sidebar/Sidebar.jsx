@@ -7,6 +7,9 @@ import { SubMenu } from "../../Structured/Submenu/Submenu";
 import { SidebarData, SidebarDataCollapsed } from "../../Structured/Submenu/sidebarData";
 import { COLORS } from "../../../config/defaultColors";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap"
+import { Footer } from "../Footer/Footer"
+import { DefaultTypography } from "../../Basic/Labels/Typography"
+import { Box } from "@mui/system";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css"
@@ -55,7 +58,13 @@ export default function Sidebar(props) {
         </div>
         </div>
         <div className={classnames("main", { mainShrink: open }, { mainExpand: !open }, { noscroll: mobile && open })}>
-          {props.content}
+          <Box paddingBottom={3} paddingTop={2} style={{ marginLeft: props.contentMarginLeft }}>
+            <DefaultTypography variant="h3" text={props.contentTitle} />
+          </Box>
+          {props.children}
+          <div>
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

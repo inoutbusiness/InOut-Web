@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-
 const SidebarLink = styled(Link)`
   display: flex;
   color: #e1e9fc;
@@ -69,8 +68,10 @@ export function SubMenu({ item }){
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index}>
-              {item.icon}
-              <SidebarLabel>{item.title}</SidebarLabel>
+              <div style={{ paddingLeft: "8%" }}>
+                {item.icon}
+                <SidebarLabel>{item.title}</SidebarLabel>
+              </div>
             </DropdownLink>
           );
         })}

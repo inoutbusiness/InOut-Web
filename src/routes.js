@@ -10,6 +10,9 @@ import Home from "./pages/Home/Home"
 import Profile from "./pages/Profile/Profile"
 import ProductRegistrationCard from "./pages/Products/Register/ProductRegistrationCard"
 import ProductVisualizationCard from "./pages/Products/Visualization/ProductVisualizationCard"
+import BrandRegistrationCard from "./pages/Brands/Register/BrandRegistrationCard"
+import BrandVisualizationCard from "./pages/Brands/Visualization/BrandVisualizationCard"
+import MovimentCard from "./pages/Stock/Moviments/MovimentCard"
 
 export default function SetRoutes(){
   return (
@@ -25,6 +28,9 @@ export default function SetRoutes(){
         <Route path="/profile" element={<Profile/>}></Route>
         <Route path="/productRegistration" element={<ProductRegistrationCard/>}></Route>
         <Route path="/productVisualization" element={<ProductVisualizationCard/>}></Route>
+        <Route path="/brandRegistration" element={<BrandRegistrationCard/>}></Route>
+        <Route path="/brandVisualization" element={<BrandVisualizationCard/>}></Route>
+        <Route path="/stock/moviments" element={<MovimentCard/>}></Route>
       </Routes>
     </BrowserRouter>
   );

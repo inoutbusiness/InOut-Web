@@ -26,10 +26,22 @@ export const ENDPOINTS = {
     resetPassword: "forgotPassword/resetPassword"
   },
 
+  brand: {
+    registerBrand: "brands/registerBrand",
+    getBrandNames: "brands/getBrandNames",
+  },
+
+  product: {
+    registerProduct: "products/registerProduct",
+    getProductNamesWithCode: "products/getProductNamesWithCode"
+  },
+
   others: {
     getAccountIdByEmail: "helper/getAccountIdByEmail",
     updateUserAccountInfo: "userAccount/updateUserAccountInfo",
-    getAllUsers: "helper/getAllUsersInfo"
+    getAllUsers: "helper/getAllUsersInfo",
+    getAllProducts: "helper/getAllProductsInfo",
+    getAllBrands: "helper/getAllBrandsInfo"
   }
 }
 
