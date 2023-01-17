@@ -22,9 +22,8 @@ export function HeaderTable(props) {
 
   return (
    <div>
-     <DefaultTypography variant="h3" text={props.title} marginLeft="7%" marginTop="4%" />
      <DefaultBox height={filterByOpened ? "156px" : "75px"} width="1300px" marginTop="1%" marginLeft="7%" >
-       <SearchTextField marginTop="2%" marginLeft="2%" />
+       <SearchTextField marginTop="1.8%" marginLeft="2%" />
        <div className="container-buttons">
          <IconButtonTest backgroundColor={COLORS.PrimaryColor} marginLeft="20px" iconButton={<Add />} />
          <IconButtonTest backgroundColor={COLORS.PrimaryColor} marginLeft="20px" iconButton={<DensityMediumIcon />} />

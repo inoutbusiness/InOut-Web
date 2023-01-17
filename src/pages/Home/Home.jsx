@@ -11,7 +11,6 @@ export default function HomeCard() {
         <Sidebar content={ 
           <div>
             <div>
-              
             </div>
             <div>
               <Footer />

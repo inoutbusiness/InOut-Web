@@ -17,3 +17,16 @@ margin-left: ${props => props.marginLeft ?? "5%"};
 margin-top: ${props => props.marginTop ?? "5%"};
 transition: 0.3s;
 `;
+
+export const ContentBox = styled.div`
+background-color: #FFFFFF;
+width: ${props => props.width};
+height: ${props => props.height};
+align-items: center;
+justify-content: center;
+border: 1px solid #e7ecf1!important;
+display: ${props => props.display};
+margin-left: ${props => props.marginLeft ?? "5%"};
+margin-top: ${props => props.marginTop ?? "1%"};
+transition: 0.3s;
+`;

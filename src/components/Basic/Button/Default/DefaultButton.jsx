@@ -12,7 +12,7 @@ export function DefaultButton(props) {
          color: "#FFFFFF",
          width: props.width ?? 380,
          height: props.height ?? 75,
-         borderRadius: 10,
+         borderRadius: 5,
          fontWeight: "initial",
          fontSize: 12,
          marginLeft: props.marginLeft ?? "0%",

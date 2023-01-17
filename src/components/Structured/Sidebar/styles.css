@@ -16,15 +16,6 @@
   z-index: 1000;
   height: 58px;
   z-index: -999;
-}
-
-.navHeaderWrapClosed {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  z-index: 1000;
-  height: 58px;
   margin-left: 75px;
 }
 
@@ -54,12 +45,12 @@
 
 .sidenavOpen {
   height: 100%;
-  width: 0;
+  width: 260px;
   position: fixed;
   top: 0px;
   left: 0;
   padding-top: 58px;
-  width: 260px;
+  transition: 0.3s;
 }
 
 .mainShrink {
@@ -78,6 +69,7 @@
   top: 0px;
   left: 0;
   padding-top: 15px;
+  transition: 0.3s;
 }
 
 .mainExpand {
@@ -94,7 +86,12 @@
   letter-spacing: 0.5px;
   display: block;
   transition: 0.3s;
-  color: #ffff
+  color: #ffff;
+}
+
+.sidenav a:hover, .sidenav a:focus {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
 .hidex {

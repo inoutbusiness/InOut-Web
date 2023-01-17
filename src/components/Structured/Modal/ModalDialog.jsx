@@ -58,18 +58,19 @@ export function ProfileModal(props) {
           </div>
           <div className="modal-body">
             <div> {/* Content */}
-              <Box marginLeft="30%">
-                <SkipLine paddingTop="30" />
+              <Box marginLeft="28%" paddingBottom={5} paddingTop={5}>
                 <ReactRoundedImage image={avatar} roundedColor={COLORS.ThirdColor} imageWidth="130" imageHeight="130"/>
               </Box>
-                <SkipLine paddingTop="20" />
               <Box textAlign="center">
-                <DefaultTextField label="Name" width="300px" disabled="true" value={`${userInfo.firstName} ${userInfo.lastName}`} />
-                  <Box marginBottom="50px" />
-                <DefaultTextField label="Email" width="300px" disabled="true" value={userInfo.email ?? ''} />
-                  <Box marginBottom="50px" />
-                <DefaultTextField label="CpfCnpj" width="300px" disabled="true" value={userInfo.cpfCnpj ?? ''} />
-                  <Box marginBottom="50px" />
+                <Box paddingBottom={2} paddingTop={-2}>
+                  <DefaultTextField label="Name" width="300px" disabled="true" value={`${userInfo.firstName} ${userInfo.lastName}`} />
+                </Box>
+                <Box paddingBottom={2} paddingTop={2}>
+                  <DefaultTextField label="Email" width="300px" disabled="true" value={userInfo.email ?? ''} />
+                </Box>
+                <Box paddingBottom={5} paddingTop={2}>
+                  <DefaultTextField label="CpfCnpj" width="300px" disabled="true" value={userInfo.cpfCnpj ?? ''} />
+                </Box>
               </Box>
             </div>
           </div>
