@@ -1,23 +1,22 @@
 import React from "react"
 import Sidebar from "../../components/Structured/Sidebar/Sidebar"
+import logo from "../../assets/DispoLogo.png"
 
-import { Footer } from "../../components/Structured/Footer/Footer"
 import { BACKGROUNDS } from "../../config/defaultColors"
+import { Card, CardContent } from '@material-ui/core';
 
 export default function HomeCard() {
   return (
-    <div>
-      <div style={{ backgroundColor: BACKGROUNDS.WhiteTheme }}>
-        <Sidebar content={ 
-          <div>
-            <div>
-            </div>
-            <div>
-              <Footer />
-            </div>
-          </div>
-        }/>
-      </div>
+    <div style={{ backgroundColor: BACKGROUNDS.WhiteTheme }}>
+      <Sidebar contentTitle="" contentMarginLeft="4%">
+        <div style={{ marginLeft: "23%", width: "800px" }}>
+          <Card>
+            <CardContent>
+              <img src={logo} alt="InOut" width="350" height="350" style={{ marginLeft: "25%" }} />
+            </CardContent>
+          </Card>
+        </div>
+      </Sidebar>
     </div>
   );
 }

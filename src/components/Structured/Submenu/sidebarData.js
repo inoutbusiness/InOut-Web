@@ -39,13 +39,13 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Cadastro',
-        path: '/productRegistration',
+        path: '/products/registration',
         icon: <CiIcons.CiCirclePlus />,
         cName: 'sub-nav'
       },
       {
         title: 'Visualização',
-        path: '/productVisualization',
+        path: '/products/visualization',
         icon: <CiIcons.CiLaptop />,
         cName: 'sub-nav'
       }
@@ -61,13 +61,13 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Cadastro',
-        path: '/brandRegistration',
+        path: '/brands/registration',
         icon: <CiIcons.CiCirclePlus />,
         cName: 'sub-nav'
       },
       {
         title: 'Visualização',
-        path: '/brandVisualization',
+        path: '/brands/visualization',
         icon: <CiIcons.CiLaptop />,
         cName: 'sub-nav'
       }
@@ -83,13 +83,13 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Cadastro',
-        path: '/brandRegistration',
+        path: '/brands/registration',
         icon: <CiIcons.CiCirclePlus />,
         cName: 'sub-nav'
       },
       {
         title: 'Visualização',
-        path: '/brandVisualization',
+        path: '/brands/visualization',
         icon: <CiIcons.CiLaptop />,
         cName: 'sub-nav'
       }
@@ -111,7 +111,7 @@ export const SidebarData = [
         cName: 'sub-nav'
       },
     ]
-  }
+  },
 ];
 
 export const SidebarDataCollapsed = [

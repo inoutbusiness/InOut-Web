@@ -51,6 +51,7 @@
   left: 0;
   padding-top: 58px;
   transition: 0.3s;
+  z-index: 999;
 }
 
 .mainShrink {
@@ -70,6 +71,7 @@
   left: 0;
   padding-top: 15px;
   transition: 0.3s;
+  z-index: 999;
 }
 
 .mainExpand {
