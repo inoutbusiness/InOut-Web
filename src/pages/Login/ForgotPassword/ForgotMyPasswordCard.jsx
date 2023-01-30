@@ -19,7 +19,7 @@ export default function ForgotMyPasswordCard() {
   const [accountId, setAccountId] = useState("");
 
   if (goToResetPassword && accountId !== ""){
-    var urlWithAccountId = "/emailCodeResetPassword/accountId=" + accountId;  // Validar a possibilidade de melhorar isso   
+    var urlWithAccountId = "/login/emailCodeResetPassword/accountId=" + accountId;  // Validar a possibilidade de melhorar isso   
     return <Navigate to={urlWithAccountId} />
   }
   

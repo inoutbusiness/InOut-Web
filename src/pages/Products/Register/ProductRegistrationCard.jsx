@@ -11,7 +11,7 @@ import { handleGetBrandNames } from "../../../services/Brand/brandServices"
 import { DefaultButton } from '../../../components/Basic/Button/Default/DefaultButton';
 import { BACKGROUNDS, COLORS } from '../../../config/defaultColors';
 
-import "./style.css"
+import "../../../styles/registrationContent.css"
 
 export default function ProductRegistrationCard() {
 

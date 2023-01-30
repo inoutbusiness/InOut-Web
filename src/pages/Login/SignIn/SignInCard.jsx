@@ -1,4 +1,4 @@
-import logo from "../../../assets/InOutLogo-withoutBackground.png"
+import logo from "../../../assets/DispoLogo.png"
 
 import { useState } from "react"
 import { Box, Link } from "@mui/material"
@@ -14,7 +14,7 @@ import { setUserInfo } from "../../../services/Getters/lsUserInfoService"
 import { setToken } from "../../../services/Getters/lsTokenService"
 import { COLORS } from "../../../config/defaultColors"
 
-import "../../../styles/LoginCard.css"
+import "./style.css"
 import "../../../services/apiMap"
 
 export default function SignInCard() {
@@ -60,7 +60,7 @@ export default function SignInCard() {
       <DefaultBox width="400px" height="600px" marginLeft="0%" marginTop="0%">
         <div id="content">
           <Box sx={{ marginLeft: "-15px" }}>
-            <img src={logo} alt="InOut" width="150" height="150" style={{ marginLeft: "27%", marginTop: "10%" }} />
+            <img src={logo} alt="InOut" width="250" height="220" style={{ marginLeft: "10%", marginTop: "-10%" }} />
             <DefaultTextField label="E-mail" variant="outlined" type="email"
                               onChange={(value) => setEmailRequest(value.target.value) } onKeyPress={(e) => keyPress(e)} />
           </Box>
@@ -70,7 +70,7 @@ export default function SignInCard() {
                                onChange={(value) => setpasswordRequest(value.target.value) } onKeyPress={(e) => keyPress(e)} />
           </Box>
           <Box>
-            <Link href="/forgotmypassword" underline="none"
+            <Link href="/login/forgotmypassword" underline="none"
                   style={{ color: COLORS.PrimaryColor, float: "right", marginBottom: 30, marginTop: 10 }}>
             Esqueci minha senha
             </Link>
@@ -81,7 +81,7 @@ export default function SignInCard() {
           <DefaultTypography variant="h6" color={COLORS.PrimaryColor} textAlign="center" text="OU" paddingTop="15px"
                              paddingBottom="15px" />
           <Box textAlign="center">
-            <DefaultButton href="/signup" backgroundColor={COLORS.PrimaryColor} title="Registrar" width="250px" height="50px" />
+            <DefaultButton href="/login/signup" backgroundColor={COLORS.PrimaryColor} title="Registrar" width="250px" height="50px" />
           </Box>
         </div>
       </DefaultBox>

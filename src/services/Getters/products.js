@@ -2,6 +2,6 @@ import { createAPIEndpoint, ENDPOINTS } from "../apiMap";
 
 export const handleGetAllProductsInfo = () => {
 
-    return createAPIEndpoint(ENDPOINTS.others.getAllProducts)
+    return createAPIEndpoint(ENDPOINTS.product.getAllProducts)
            .getAll();
 }

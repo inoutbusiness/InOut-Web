@@ -42,7 +42,7 @@ export default function Sidebar(props) {
            <span onClick={onToggleNav}>
              <FaIcons.FaBars />
            </span>
-		  </div>
+		    </div>
           }
         <div style={{ marginTop: "50px" }}>
           { open 

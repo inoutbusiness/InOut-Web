@@ -8,8 +8,6 @@ import { DefaultTextField } from "../../../components/Basic/TextField/TextField"
 import { handleRegisterBrand } from "../../../services/Brand/brandServices"
 import { Box, Card, CardContent } from '@material-ui/core';
 
-import "./style.css";
-
 export default function BrandRegistrationCard() {
 
   const [brandName, setBrandName] = useState();
@@ -32,7 +30,7 @@ export default function BrandRegistrationCard() {
   return (
     <div style={{ backgroundColor: BACKGROUNDS.WhiteTheme }}>
       <Sidebar contentTitle="Cadastro de Marca" contentMarginLeft="4%">
-        <div style={{ marginLeft: "4%", width: "1400px"}}>
+        <div style={{ marginLeft: "4%", width: "1400px" }}>
           <Card>
             <CardContent>
               <div class="container">

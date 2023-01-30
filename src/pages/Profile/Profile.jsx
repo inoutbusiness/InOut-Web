@@ -9,7 +9,7 @@ import { getUserId, setUserInfo } from "../../services/Getters/lsUserInfoService
 import { handleUpdateUserAccountInfo } from "../../services/UserAccount/profileCallAPI"
 import { COLORS, BACKGROUNDS } from "../../config/defaultColors"
 
-import "./styles.css"
+import "../../styles/registrationContent.css"
 
 export default function ProfileCard() {
 

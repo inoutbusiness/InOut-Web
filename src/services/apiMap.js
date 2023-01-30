@@ -12,12 +12,19 @@ const URL = {
 
 const BASE_URL = URL.Matheus // <--------
 
-// Dá para separar ainda mais para ficar ainda mais organizado!
 export const ENDPOINTS = {
 
   auth: {
     signIn: "auth/signin",
     signUp: "auth/signup"
+  },
+
+  account: {
+    getAccountIdByEmail: "accounts/getAccountIdByEmail",
+  },
+
+  userAccount: {
+    updateUserAccountInfo: "userAccount/updateUserAccountInfo",
   },
 
   forgotPassword: {
@@ -29,20 +36,14 @@ export const ENDPOINTS = {
   brand: {
     registerBrand: "brands/registerBrand",
     getBrandNames: "brands/getBrandNames",
+    getAllBrands: "brands/getAllBrandsInfo",
   },
 
   product: {
     registerProduct: "products/registerProduct",
-    getProductNamesWithCode: "products/getProductNamesWithCode"
+    getProductNamesWithCode: "products/getProductNamesWithCode",
+    getAllProducts: "products/getAllProductsInfo",
   },
-
-  others: {
-    getAccountIdByEmail: "helper/getAccountIdByEmail",
-    updateUserAccountInfo: "userAccount/updateUserAccountInfo",
-    getAllUsers: "helper/getAllUsersInfo",
-    getAllProducts: "helper/getAllProductsInfo",
-    getAllBrands: "helper/getAllBrandsInfo"
-  }
 }
 
 export const createAPIEndpoint = (endpoint) => {

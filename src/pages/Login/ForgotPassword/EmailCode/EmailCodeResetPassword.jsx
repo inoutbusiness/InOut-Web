@@ -23,7 +23,7 @@ export default function CodeResetPasswordCard() {
   const accountId = window.location.pathname.substring(24);           // Melhorar //
 
   if (goToResetPassword){
-    var urlWithAccountId = "/resetPassword/" + accountId;
+    var urlWithAccountId = "/login/resetPassword/" + accountId;
     return <Navigate to={urlWithAccountId} />
   };
 

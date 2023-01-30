@@ -16,7 +16,7 @@ const SidebarLink = styled(Link)`
 
   &:hover {
     background: #020D21;
-    border-left: 4px solid #632ce4;
+    border-left: 0px solid #632ce4;
     cursor: pointer;
   }
 `;
@@ -64,17 +64,22 @@ export function SubMenu({ item }){
           </div>
         </div>
       </SidebarLink>
-      {subnav &&
-        item.subNav.map((item, index) => {
-          return (
-            <DropdownLink to={item.path} key={index}>
-              <div style={{ paddingLeft: "8%" }}>
-                {item.icon}
-                <SidebarLabel>{item.title}</SidebarLabel>
-              </div>
-            </DropdownLink>
-          );
-        })}
+      {
+        item.subNav && subnav 
+        ?
+          item.subNav.map((item, index) => {
+            return (
+              <DropdownLink to={item.path} key={index}>
+                <div style={{ paddingLeft: "8%" }}>
+                  {item.icon}
+                  <SidebarLabel>{item.title}</SidebarLabel>
+                </div>
+              </DropdownLink>
+            );
+          }) 
+        : 
+          null 
+      }
     </div>
   );
 };
